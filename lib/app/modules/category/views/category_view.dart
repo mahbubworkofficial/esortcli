@@ -3,7 +3,6 @@ import 'package:esortcli/app/res/colors/app_color.dart';
 import 'package:esortcli/app/routes/app_pages.dart';
 import 'package:esortcli/app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:esortcli/app/widgets/edge_button.dart';
-import 'package:esortcli/app/widgets/long_press_dialoge.dart';
 import 'package:esortcli/app/widgets/rename_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,31 +12,70 @@ import '../controllers/category_controller.dart';
 
 class CategoryView extends GetView<CategoryController> {
   CategoryView({super.key});
+
+  void _showPopupMenu(BuildContext context, Offset position) {
+    final RenderBox overlay = Overlay.of(context).context.findRenderObject()! as RenderBox;
+    showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(
+        position.dx,
+        position.dy,
+        overlay.size.width - position.dx,
+        overlay.size.height - position.dy,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      color: AppColor.grayColor,
+      items: [
+        PopupMenuItem(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  child: SvgPicture.asset(
+                    ImageAssets.delete,
+                    height: 24,
+                    width: 24,
+                    color: AppColor.whiteColor,
+                  ),
+                  onTap: () {
+                    Navigator.pop(context); // Close popup menu
+                    Get.dialog(
+                      DeleteDialog(onConfirm: () {}),
+                    );
+                  },
+                ),
+                const SizedBox(height: 15),
+                InkWell(
+                  child: SvgPicture.asset(
+                    ImageAssets.rename,
+                    height: 24,
+                    width: 24,
+                    color: AppColor.whiteColor,
+                  ),
+                  onTap: () {
+                    Navigator.pop(context); // Close popup menu
+                    Get.dialog(
+                      RenameDialog(onConfirm: () {}),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColor.blackColor,
-        // appBar: AppBar(
-        //   backgroundColor: AppColor.blackColor,
-        //   leading: IconButton(
-        //     icon: SvgPicture.asset(
-        //       ImageAssets.back_button,
-        //       height: 24,
-        //       width: 12,
-        //     ),
-        //     onPressed: () => Get.toNamed(Routes.HOME), // Navigate back using GetX
-        //   ),
-        //   title: const Text(
-        //     'Back',
-        //     style: TextStyle(
-        //       color: AppColor.defaultColor,
-        //       fontWeight: FontWeight.w500,
-        //       fontSize: 16,
-        //       fontFamily: 'Roboto',
-        //     ),
-        //   ),
-        // ),
         body: Column(
           children: [
             Expanded(
@@ -46,7 +84,7 @@ class CategoryView extends GetView<CategoryController> {
                   padding: const EdgeInsets.only(right: 20, left: 20),
                   child: Column(
                     children: [
-                      const SizedBox(height: 10,),
+                      const SizedBox(height: 10),
                       Align(
                         alignment: Alignment.topLeft,
                         child: Stack(
@@ -94,17 +132,12 @@ class CategoryView extends GetView<CategoryController> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      InkWell(
-                        onLongPress: () {
-                          Get.dialog(
-                            // RenameDialog(
-                            //   onConfirm: () {
-                            //     print('Category deleted');
-                            //   },
-                            //   // message: 'Do you want to delete this Category?', // Optional custom message
-                            // ),
-                            LongPressDialoge(),
-                          );
+                      GestureDetector(
+                        onLongPressStart: (details) {
+                        _showPopupMenu(context, details.globalPosition);
+                      },
+                        onTap: (){
+                          Get.toNamed(Routes.CATAGORY_LIST);
                         },
                         child: SvgPicture.asset(
                           ImageAssets.agenda,
@@ -112,23 +145,47 @@ class CategoryView extends GetView<CategoryController> {
                           width: double.infinity,
                         ),
                       ),
-                       SizedBox(height: 15),
-                      SvgPicture.asset(
-                        ImageAssets.creativity,
-                        height: 65,
-                        width: double.infinity,
+                      const SizedBox(height: 15),
+                      GestureDetector(
+                        onLongPressStart: (details) {
+                          _showPopupMenu(context, details.globalPosition);
+                        },
+                        onTap: (){
+                          Get.toNamed(Routes.CATAGORY_LIST);
+                        },
+                        child: SvgPicture.asset(
+                          ImageAssets.creativity,
+                          height: 65,
+                          width: double.infinity,
+                        ),
                       ),
                       const SizedBox(height: 15),
-                      SvgPicture.asset(
-                        ImageAssets.learning,
-                        height: 65,
-                        width: double.infinity,
+                      GestureDetector(
+                        onLongPressStart: (details) {
+                          _showPopupMenu(context, details.globalPosition);
+                        },
+                        onTap: (){
+                          Get.toNamed(Routes.CATAGORY_LIST);
+                        },
+                        child: SvgPicture.asset(
+                          ImageAssets.learning,
+                          height: 65,
+                          width: double.infinity,
+                        ),
                       ),
                       const SizedBox(height: 15),
-                      SvgPicture.asset(
-                        ImageAssets.progress,
-                        height: 65,
-                        width: double.infinity,
+                      GestureDetector(
+                        onLongPressStart: (details) {
+                          _showPopupMenu(context, details.globalPosition);
+                        },
+                        onTap: (){
+                          Get.toNamed(Routes.CATAGORY_LIST);
+                        },
+                        child: SvgPicture.asset(
+                          ImageAssets.progress,
+                          height: 65,
+                          width: double.infinity,
+                        ),
                       ),
                     ],
                   ),

@@ -1,8 +1,9 @@
 import 'dart:ui';
-
+import 'package:flutter/material.dart';
 class AppColor {
   static const Color blackColor = Color(0x23262780);
   static const Color whiteColor = Color(0xFFFFFFFF);
+  static Color? grayColor = Colors.grey[800];
   static const Color backgroundColor = Color(0xFF1E1E1E);
   static const Color primaryButtonColor = Color(0xFF232627);
   static const Color secondaryButtonColor = Color.fromRGBO(35, 38, 39, 0.5);

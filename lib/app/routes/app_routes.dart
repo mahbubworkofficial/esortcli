@@ -15,6 +15,7 @@ abstract class Routes {
   static const CATEGORY = _Paths.CATEGORY;
   static const AI = _Paths.AI;
   static const SETTINGS = _Paths.SETTINGS;
+  static const CATAGORY_LIST = _Paths.CATAGORY_LIST;
 }
 
 abstract class _Paths {
@@ -32,4 +33,5 @@ abstract class _Paths {
   static const CATEGORY = '/category';
   static const AI = '/ai';
   static const SETTINGS = '/settings';
+  static const CATAGORY_LIST = '/catagory-list';
 }

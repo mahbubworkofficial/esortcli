@@ -18,4 +18,5 @@ class ImageAssets {
   static const String cross = 'assets/svg/cross.svg';
   static const String delete = 'assets/svg/delete.svg';
   static const String rename = 'assets/svg/rename.svg';
+  static const String popup_menu = 'assets/svg/popup_menu.svg';
 }

@@ -64,7 +64,7 @@ class DeleteDialog extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                minimumSize: const Size(120, 48),
+                minimumSize: const Size(90, 40),
               ),
               child: const Text(
                 'OK',

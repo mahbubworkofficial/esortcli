@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
+
 import '../modules/ai/views/ai_view.dart';
+import '../modules/catagory_list/views/catagory_list_view.dart';
 import '../modules/category/views/category_view.dart';
 import '../modules/forget_password/views/forget_password_view.dart';
 import '../modules/home/views/home_view.dart';
@@ -58,15 +60,19 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.CATEGORY,
-      page: () =>  CategoryView(),
+      page: () => CategoryView(),
     ),
     GetPage(
       name: _Paths.AI,
-      page: () =>  AiView(),
+      page: () => AiView(),
     ),
     GetPage(
       name: _Paths.SETTINGS,
-      page: () =>  SettingsView(),
+      page: () => SettingsView(),
+    ),
+    GetPage(
+      name: _Paths.CATAGORY_LIST,
+      page: () => const CatagoryListView(),
     ),
   ];
 }
