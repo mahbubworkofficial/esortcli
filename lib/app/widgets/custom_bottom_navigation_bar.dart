@@ -52,12 +52,13 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       setState(() {
         _selectedIndex = index;
       });
-      Get.offNamed(_routes[index]);
+      Get.toNamed(_routes[index],);
     }
   }
 
   @override
   Widget build(BuildContext context) {
+
     _updateSelectedIndex();
     return BottomNavigationBar(
       backgroundColor: const Color(0xFF1E1E1E),
@@ -66,8 +67,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       onTap: _onItemTapped,
       selectedItemColor: Colors.white,
       unselectedItemColor: Colors.grey,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
       items: List.generate(_icons.length, (index) {
         return BottomNavigationBarItem(
           icon: Container(
@@ -80,8 +81,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             child: SvgPicture.asset(
               _icons[index],
               color: _selectedIndex == index ? Colors.white : Colors.grey,
-              // height: 41,
-              // width: 49,
             ),
           ),
           label: '',

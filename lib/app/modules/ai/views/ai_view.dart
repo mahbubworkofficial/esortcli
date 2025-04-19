@@ -1,12 +1,9 @@
 import 'package:esortcli/app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 
-import '../../../res/assests/image_assets.dart';
 import '../../../res/colors/app_color.dart';
-import '../../../routes/app_pages.dart';
 import '../controllers/ai_controller.dart';
 
 class AiView extends GetView<AiController> {

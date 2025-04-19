@@ -16,6 +16,18 @@ abstract class Routes {
   static const AI = _Paths.AI;
   static const SETTINGS = _Paths.SETTINGS;
   static const CATAGORY_LIST = _Paths.CATAGORY_LIST;
+  static const TASK = _Paths.TASK;
+  static const SUBSCRIPTION = _Paths.SETTINGS + _Paths.SUBSCRIPTION;
+  static const PERSONAL_INFO = _Paths.SETTINGS + _Paths.PERSONAL_INFO;
+  static const HELP = _Paths.SETTINGS + _Paths.HELP;
+  static const TERMS = _Paths.SETTINGS + _Paths.TERMS;
+  static const PRIVACY = _Paths.SETTINGS + _Paths.PRIVACY;
+  static const EDIT_INFO =
+      _Paths.SETTINGS + _Paths.PERSONAL_INFO + _Paths.EDIT_INFO;
+  static const CHANGE_INFO =
+      _Paths.SETTINGS + _Paths.PERSONAL_INFO + _Paths.CHANGE_INFO;
+  static const CHANGE_PASS =
+      _Paths.SETTINGS + _Paths.PERSONAL_INFO + _Paths.CHANGE_PASS;
 }
 
 abstract class _Paths {
@@ -34,4 +46,13 @@ abstract class _Paths {
   static const AI = '/ai';
   static const SETTINGS = '/settings';
   static const CATAGORY_LIST = '/catagory-list';
+  static const TASK = '/task';
+  static const SUBSCRIPTION = '/subscription';
+  static const PERSONAL_INFO = '/personal-info';
+  static const HELP = '/help';
+  static const TERMS = '/terms';
+  static const PRIVACY = '/privacy';
+  static const EDIT_INFO = '/edit-info';
+  static const CHANGE_INFO = '/change-info';
+  static const CHANGE_PASS = '/change-pass';
 }

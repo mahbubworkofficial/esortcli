@@ -55,8 +55,8 @@ class DeleteDialog extends StatelessWidget {
             // OK button
             ElevatedButton(
               onPressed: () {
-                onConfirm(); // Trigger confirmation action
-                Get.back(); // Dismiss dialog after confirmation
+                onConfirm();
+                Get.back();
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColor.redColor,

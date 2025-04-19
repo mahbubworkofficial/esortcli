@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class SettingsController extends GetxController {
-  //TODO: Implement SettingsController
+class TermsController extends GetxController {
+  //TODO: Implement TermsController
 
   final count = 0.obs;
   @override
@@ -20,8 +20,4 @@ class SettingsController extends GetxController {
   }
 
   void increment() => count.value++;
-
-
-  RxBool on = false.obs;
-  void toggle() => on.value = on.value ? false : true;
 }

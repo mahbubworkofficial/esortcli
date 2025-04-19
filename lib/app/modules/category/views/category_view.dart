@@ -23,47 +23,49 @@ class CategoryView extends GetView<CategoryController> {
         overlay.size.width - position.dx,
         overlay.size.height - position.dy,
       ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       color: AppColor.grayColor,
+      constraints: const BoxConstraints(
+        maxWidth: 40,
+        minWidth: 40,
+      ),
       items: [
         PopupMenuItem(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 5),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                InkWell(
-                  child: SvgPicture.asset(
-                    ImageAssets.delete,
-                    height: 24,
-                    width: 24,
-                    color: AppColor.whiteColor,
+          height: 60,
+          padding: EdgeInsets.zero,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              maxWidth: 50,
+              minWidth: 50,
+            ),
+            child: ClipRect(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    child: SvgPicture.asset(
+                      ImageAssets.delete,
+                      color: AppColor.whiteColor,
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                      Get.dialog(DeleteDialog(
+                          onConfirm: () {}));
+                    },
                   ),
-                  onTap: () {
-                    Navigator.pop(context); // Close popup menu
-                    Get.dialog(
-                      DeleteDialog(onConfirm: () {}),
-                    );
-                  },
-                ),
-                const SizedBox(height: 15),
-                InkWell(
-                  child: SvgPicture.asset(
-                    ImageAssets.rename,
-                    height: 24,
-                    width: 24,
-                    color: AppColor.whiteColor,
+                  const SizedBox(height: 15),
+                  InkWell(
+                    child: SvgPicture.asset(
+                      ImageAssets.rename,
+                      color: AppColor.whiteColor,
+                    ),
+                    onTap: () {
+                      Navigator.pop(context); // Close popup menu
+                      Get.dialog(RenameDialog(onConfirm: () {}));
+                    },
                   ),
-                  onTap: () {
-                    Navigator.pop(context); // Close popup menu
-                    Get.dialog(
-                      RenameDialog(onConfirm: () {}),
-                    );
-                  },
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

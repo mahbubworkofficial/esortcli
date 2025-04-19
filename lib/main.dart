@@ -6,6 +6,9 @@ void main() {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        splashColor: Colors.transparent
+      ),
       title: "Application",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,

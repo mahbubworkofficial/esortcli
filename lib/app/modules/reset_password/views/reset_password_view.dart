@@ -1,9 +1,7 @@
 import 'package:esortcli/app/widgets/input_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../res/colors/app_color.dart';
 import '../../../routes/app_pages.dart';
-import '../../../widgets/edge_button.dart';
 import '../../../widgets/round_button.dart';
 import '../controllers/reset_password_controller.dart';
 

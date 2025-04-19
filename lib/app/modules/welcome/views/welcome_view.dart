@@ -1,4 +1,4 @@
-import 'package:esortcli/app/widgets/round_button2.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../res/colors/app_color.dart';
@@ -36,7 +36,10 @@ class WelcomeView extends GetView<WelcomeController> {
                   ),
                 ),
                 const SizedBox(height: 60),
-                RoundButton2(
+                RoundButton(
+                  buttonColor: AppColor.secondaryButtonColor,
+                  textColor: AppColor.whiteColor,
+                  borderColor: AppColor.secondaryButtonColor,
                   title: 'Log in',
                   onPress: () {
                     Get.toNamed(Routes.LOGIN);

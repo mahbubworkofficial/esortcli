@@ -19,4 +19,10 @@ class ImageAssets {
   static const String delete = 'assets/svg/delete.svg';
   static const String rename = 'assets/svg/rename.svg';
   static const String popup_menu = 'assets/svg/popup_menu.svg';
+  static const String task = 'assets/svg/task.svg';
+  static const String forward_arrow = 'assets/svg/forward_arrow.svg';
+  static const String delete_data = 'assets/svg/delete_data.svg';
+  static const String logout = 'assets/svg/logout.svg';
+  static const String birthday = 'assets/svg/birthday.svg';
+  static const String camera = 'assets/svg/camera.svg';
 }
