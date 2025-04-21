@@ -31,4 +31,11 @@ class ImageAssets {
   static const String selected = 'assets/svg/selected.svg';
   static const String background = 'assets/svg/background.png';
   static const String upgrade = 'assets/svg/upgrade.svg';
+  static const String star = 'assets/svg/star.png';
+  static const String bell = 'assets/svg/bell.svg';
+  static const String clock = 'assets/svg/clock.svg';
+  static const String reminder = 'assets/svg/reminder.svg';
+  static const String setTime = 'assets/svg/setTime.svg';
+  static const String upper_arrow = 'assets/svg/upper_arrow.svg';
+  static const String down_arrow = 'assets/svg/down_arrow.svg';
 }

@@ -17,30 +17,26 @@ class _SonicAiViewState extends State<SonicAiView> {
   String _selectedPlan = 'Lifetime';
 
   Widget _buildPlanOption(
-      String title,
-      String price,
-      bool isSelected,
-      VoidCallback onTap, {
-        bool isBestValue = false,
-      }) {
+    String title,
+    String price,
+    bool isSelected,
+    VoidCallback onTap, {
+    bool isBestValue = false,
+  }) {
     return GestureDetector(
       onTap: onTap,
       child: Row(
         children: [
           isSelected
-              ? SvgPicture.asset(
-            ImageAssets.selected,
-            height: 24,
-            width: 24,
-          )
+              ? SvgPicture.asset(ImageAssets.selected, height: 24, width: 24)
               : Container(
-            height: 24,
-            width: 24,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: Colors.grey, width: 2),
-            ),
-          ),
+                height: 24,
+                width: 24,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.grey, width: 2),
+                ),
+              ),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -113,10 +109,7 @@ class _SonicAiViewState extends State<SonicAiView> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset(
-              ImageAssets.background,
-              fit: BoxFit.fill,
-            ),
+            child: Image.asset(ImageAssets.background, fit: BoxFit.fill),
           ),
           SafeArea(
             child: Padding(
@@ -186,7 +179,7 @@ class _SonicAiViewState extends State<SonicAiView> {
                           'Monthly',
                           '\$7.99 /month',
                           _selectedPlan == 'Monthly',
-                              () {
+                          () {
                             setState(() {
                               _selectedPlan = 'Monthly';
                             });
@@ -197,7 +190,7 @@ class _SonicAiViewState extends State<SonicAiView> {
                           'Lifetime',
                           '\$250',
                           _selectedPlan == 'Lifetime',
-                              () {
+                          () {
                             setState(() {
                               _selectedPlan = 'Lifetime';
                             });
@@ -209,7 +202,7 @@ class _SonicAiViewState extends State<SonicAiView> {
                           'Yearly',
                           '\$69.99 /year',
                           _selectedPlan == 'Yearly',
-                              () {
+                          () {
                             setState(() {
                               _selectedPlan = 'Yearly';
                             });

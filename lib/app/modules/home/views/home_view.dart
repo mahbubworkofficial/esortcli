@@ -1,3 +1,4 @@
+import 'package:esortcli/app/modules/home/views/calender_view.dart';
 import 'package:esortcli/app/res/colors/app_color.dart';
 import 'package:esortcli/app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:esortcli/app/widgets/input_resize_widget.dart';
@@ -155,7 +156,12 @@ class HomeView extends GetView<HomeController> {
                             children: [
                               SvgPicture.asset(ImageAssets.note),
                               const SizedBox(width: 10),
-                              SvgPicture.asset(ImageAssets.calender),
+                              InkWell(
+                                  onTap: (){
+                                    Get.dialog(CalendarView());
+                                    // CalendarView();
+                                  },
+                                  child: SvgPicture.asset(ImageAssets.calender)),
                             ],
                           ),
                         ],

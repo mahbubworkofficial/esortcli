@@ -1,4 +1,7 @@
 import 'package:esortcli/app/res/assests/image_assets.dart';
+import 'package:esortcli/app/routes/app_pages.dart';
+import 'package:esortcli/app/widgets/delete_dialog.dart';
+import 'package:esortcli/app/widgets/set_reminder_dialog/views/set_reminder_dialog_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -139,6 +142,77 @@ class _FoodItemListState extends State<FoodItemList> {
     super.dispose();
   }
 
+  void _showPopupMenu(BuildContext context, Offset position) {
+    final RenderBox overlay = Overlay.of(context).context.findRenderObject()! as RenderBox;
+    showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(
+        position.dx,
+        position.dy,
+        overlay.size.width - position.dx,
+        overlay.size.height - position.dy,
+      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+      color: AppColor.grayColor,
+      constraints: const BoxConstraints(
+        maxWidth: 40, // Enforce max width at the menu level
+        minWidth: 40, // Ensure min width matches
+      ),
+      items: [
+        PopupMenuItem(
+          height: 60, // Compact height
+          padding: EdgeInsets.zero,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              maxWidth: 50,
+              minWidth: 50,
+            ),
+            child: ClipRect(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    child: SvgPicture.asset(
+                      ImageAssets.delete,
+                      color: AppColor.whiteColor,
+                    ),
+                    onTap: () {
+                      Navigator.pop(context); // Close popup menu
+                      Get.dialog(DeleteDialog(
+                          message:'Do you want to delete the Note?',
+                          onConfirm: () {}));
+                    },
+                  ),
+                  const SizedBox(height: 15), // Reduced spacing
+                  InkWell(
+                    child: SvgPicture.asset(
+                      ImageAssets.bell,
+                      color: AppColor.whiteColor,
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                      showSetReminderDialog();
+                    },
+                  ),
+                  const SizedBox(height: 15),
+                  InkWell(
+                    child: SvgPicture.asset(
+                      ImageAssets.task,
+                      color: AppColor.whiteColor,
+                    ),
+                    onTap: () {// Close popup menu
+                      Get.toNamed(Routes.TASK);
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {
@@ -215,7 +289,11 @@ class _FoodItemListState extends State<FoodItemList> {
                           ),
                         ],
                       ),
-                      trailing: SvgPicture.asset(ImageAssets.menu),
+                      trailing: InkWell(
+                          onTapDown: (details) {
+                            _showPopupMenu(context, details.globalPosition);
+                          },
+                          child: SvgPicture.asset(ImageAssets.menu)),
                     ),
                   );
                 },

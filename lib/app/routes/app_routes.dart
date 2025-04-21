@@ -57,4 +57,5 @@ abstract class _Paths {
   static const CHANGE_INFO = '/change-info';
   static const CHANGE_PASS = '/change-pass';
   static const SONIC_AI = '/sonic-ai';
+  static const SET_REMINDER_DIALOG = '/set-reminder-dialog';
 }
