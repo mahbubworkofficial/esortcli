@@ -14,6 +14,7 @@ import '../modules/settings/personal_info/change_info/views/change_info_view.dar
 import '../modules/settings/personal_info/change_pass/views/change_pass_view.dart';
 import '../modules/settings/personal_info/views/personal_info_view.dart';
 import '../modules/settings/privacy/views/privacy_view.dart';
+import '../modules/settings/sonic_ai/views/sonic_ai_view.dart';
 import '../modules/settings/subscription/views/subscription_view.dart';
 import '../modules/settings/terms/views/terms_view.dart';
 import '../modules/settings/views/settings_view.dart';
@@ -100,19 +101,19 @@ class AppPages {
           children: [
             GetPage(
               name: _Paths.CHANGE_INFO,
-              page: () =>  ChangeInfoView(),
+              page: () => ChangeInfoView(),
               transition: Transition.rightToLeft,
             ),
             GetPage(
               name: _Paths.CHANGE_PASS,
-              page: () =>  ChangePassView(),
+              page: () => ChangePassView(),
               transition: Transition.rightToLeft,
             ),
           ],
         ),
         GetPage(
           name: _Paths.HELP,
-          page: () => const HelpView(),
+          page: () => HelpView(),
           transition: Transition.rightToLeft,
         ),
         GetPage(
@@ -123,6 +124,11 @@ class AppPages {
         GetPage(
           name: _Paths.PRIVACY,
           page: () => const PrivacyView(),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: _Paths.SONIC_AI,
+          page: () => SonicAiView(),
           transition: Transition.rightToLeft,
         ),
       ],

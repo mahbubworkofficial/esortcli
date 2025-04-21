@@ -255,9 +255,14 @@ class PersonalInfoView extends GetView<PersonalInfoController> {
                             color: AppColor.whiteColor,
                           ),
                         ),
-                        SvgPicture.asset(
-                          ImageAssets.task,
-                          color: AppColor.defaultColor,
+                        InkWell(
+                          onTap: (){
+                            Get.toNamed(Routes.CHANGE_PASS);
+                          },
+                          child: SvgPicture.asset(
+                            ImageAssets.task,
+                            color: AppColor.defaultColor,
+                          ),
                         ),
                       ],
                     ),

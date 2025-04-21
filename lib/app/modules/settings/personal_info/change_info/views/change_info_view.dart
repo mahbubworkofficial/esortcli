@@ -25,7 +25,7 @@ class ChangeInfoView extends GetView<ChangeInfoController> {
           onPressed: () => Get.back(),
         ),
         title: InkWell(
-          onTap: ()=> Get.back(),
+          onTap: () => Get.back(),
           child: Text(
             'Back',
             style: TextStyle(
@@ -40,209 +40,243 @@ class ChangeInfoView extends GetView<ChangeInfoController> {
       body: Padding(
         padding: const EdgeInsets.only(left: 20.0, right: 20),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Personal Information',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20,
-                  color: AppColor.whiteColor,
-                ),
-              ),
-            ),
-            const SizedBox(height: 30),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
               children: [
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    // Base image
-                    Image.asset(
-                      'assets/images/img.png',
-                      width: 130,
-                      height: 130,
-                      fit: BoxFit.cover,
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Personal Information',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                      color: AppColor.whiteColor,
                     ),
-                    Positioned(
-                      bottom: 0,
-                      right: 15,
-                      child: SvgPicture.asset(ImageAssets.camera),
-                    ),
-                  ],
+                  ),
                 ),
-                Column(
+                const SizedBox(height: 30),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Mira',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        fontSize: 30,
-                        color: AppColor.whiteColor,
-                      ),
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        // Base image
+                        Image.asset(
+                          'assets/images/img.png',
+                          width: 130,
+                          height: 130,
+                          fit: BoxFit.cover,
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 15,
+                          child: SvgPicture.asset(ImageAssets.camera),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 10),
-                    Row(
+                    Column(
                       children: [
                         Text(
-                          'Bio:',
+                          'Mira',
                           style: TextStyle(
                             fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 30,
                             color: AppColor.whiteColor,
                           ),
                         ),
-                        const SizedBox(width: 5),
-                        InputTextWidget(
-                          borderRadius: 10,
-                          height: 21,
-                          width: 160,
-                          onChanged: (value) {
-                            // controller.email.value = value;
-                          },
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your email';
-                            }
-                            if (!GetUtils.isEmail(value)) {
-                              return 'Please enter a valid email';
-                            }
-                            return null;
-                          },
+                        const SizedBox(height: 10),
+                        Row(
+                          children: [
+                            Text(
+                              'Bio:',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14,
+                                color: AppColor.whiteColor,
+                              ),
+                            ),
+                            const SizedBox(width: 5),
+                            InputTextWidget(
+                              borderRadius: 10,
+                              height: 21,
+                              width: 160,
+                              onChanged: (value) {
+                                // controller.email.value = value;
+                              },
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter your email';
+                                }
+                                if (!GetUtils.isEmail(value)) {
+                                  return 'Please enter a valid email';
+                                }
+                                return null;
+                              },
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ],
                 ),
+                const SizedBox(height: 20),
+                Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Name',
+                        style: TextStyle(
+                          fontFamily: 'Urbanist',
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    InputTextWidget(
+                      hintText: 'Mira',
+                      hintfontFamily: 'Poppins',
+                      hintfontSize: 18,
+                      hintfontWeight: FontWeight.w400,
+                      hintTextColor: AppColor.whiteColor,
+                      borderRadius: 30,
+                      height: 42,
+                      onChanged: (value) {
+                        // controller.email.value = value;
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your email';
+                        }
+                        if (!GetUtils.isEmail(value)) {
+                          return 'Please enter a valid email';
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Email',
+                        style: TextStyle(
+                          fontFamily: 'Urbanist',
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    InputTextWidget(
+                      hintText: 'abc@gmail.com',
+                      hintfontFamily: 'Poppins',
+                      hintfontSize: 18,
+                      hintfontWeight: FontWeight.w400,
+                      hintTextColor: AppColor.whiteColor,
+                      borderRadius: 30,
+                      height: 42,
+                      onChanged: (value) {
+                        // controller.email.value = value;
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your email';
+                        }
+                        if (!GetUtils.isEmail(value)) {
+                          return 'Please enter a valid email';
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                // Password Field
+                Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Birth Day',
+                        style: TextStyle(
+                          fontFamily: 'Urbanist',
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: InputTextWidget(
+                        hintText: 'DD/MM/YY',
+                        hintfontFamily: 'Poppins',
+                        hintfontSize: 18,
+                        hintfontWeight: FontWeight.w400,
+                        hintTextColor: AppColor.whiteColor,
+                        borderRadius: 30,
+                        height: 42,
+                        width: 200,
+                        showImage: true,
+                        onChanged: (value) {
+                          // controller.password.value = value;
+                        },
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your password';
+                          }
+                          if (value.length < 6) {
+                            return 'Password must be at least 6 characters';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
-            const SizedBox(height: 20),
             Column(
               children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Name',
-                    style: TextStyle(
-                      fontFamily: 'Urbanist',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
-                  ),
+                RoundButton(
+                  title: "Save",
+                  onPress: () {},
+                  buttonColor: AppColor.defaultColor,
+                  textColor: AppColor.whiteColor,
+                  height: 53,
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  radius: 20,
                 ),
-                const SizedBox(height: 10),
-                InputTextWidget(
-                  hintText: 'Mira',
-                  hintfontFamily: 'Poppins',
-                  hintfontSize: 18,
-                  hintfontWeight: FontWeight.w400,
-                  hintTextColor: AppColor.whiteColor,
-                  borderRadius: 30,
-                  height: 42,
-                  onChanged: (value) {
-                    // controller.email.value = value;
-                  },
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    if (!GetUtils.isEmail(value)) {
-                      return 'Please enter a valid email';
-                    }
-                    return null;
-                  },
+                const SizedBox(height: 20),
+                RoundButton(
+                  title: "Reset",
+                  onPress: () {},
+                  buttonColor: AppColor.blackColor,
+                  textColor: AppColor.defaultColor,
+                  borderColor: AppColor.defaultColor,
+                  height: 53,
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  radius: 20,
                 ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Column(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Email',
-                    style: TextStyle(
-                      fontFamily: 'Urbanist',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
-                InputTextWidget(
-                  hintText: 'abc@gmail.com',
-                  hintfontFamily: 'Poppins',
-                  hintfontSize: 18,
-                  hintfontWeight: FontWeight.w400,
-                  hintTextColor: AppColor.whiteColor,
-                  borderRadius: 30,
-                  height: 42,
-                  onChanged: (value) {
-                    // controller.email.value = value;
-                  },
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    if (!GetUtils.isEmail(value)) {
-                      return 'Please enter a valid email';
-                    }
-                    return null;
-                  },
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            // Password Field
-            Column(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Birth Day',
-                    style: TextStyle(
-                      fontFamily: 'Urbanist',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: InputTextWidget(
-                    hintText: 'DD/MM/YY',
-                    hintfontFamily: 'Poppins',
-                    hintfontSize: 18,
-                    hintfontWeight: FontWeight.w400,
-                    hintTextColor: AppColor.whiteColor,
-                    borderRadius: 30,
-                    height: 42,
-                    width: 200,
-                    showImage: true,
-                    onChanged: (value) {
-                      // controller.password.value = value;
-                    },
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your password';
-                      }
-                      if (value.length < 6) {
-                        return 'Password must be at least 6 characters';
-                      }
-                      return null;
-                    },
-                  ),
-                ),
+                const SizedBox(height: 35,)
               ],
             ),
           ],

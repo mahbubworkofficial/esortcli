@@ -25,4 +25,10 @@ class ImageAssets {
   static const String logout = 'assets/svg/logout.svg';
   static const String birthday = 'assets/svg/birthday.svg';
   static const String camera = 'assets/svg/camera.svg';
+  static const String password = 'assets/svg/password.svg';
+  static const String pro = 'assets/svg/pro.svg';
+  static const String light = 'assets/svg/light.svg';
+  static const String selected = 'assets/svg/selected.svg';
+  static const String background = 'assets/svg/background.png';
+  static const String upgrade = 'assets/svg/upgrade.svg';
 }

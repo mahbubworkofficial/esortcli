@@ -1,3 +1,4 @@
+import 'package:esortcli/app/routes/app_pages.dart';
 import 'package:esortcli/app/widgets/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -244,7 +245,9 @@ class SubscriptionView extends GetView<SubscriptionController> {
             const SizedBox(height: 30),
             RoundButton(
               title: "Update",
-              onPress: () {},
+              onPress: () {
+                Get.toNamed(Routes.SONIC_AI);
+              },
               buttonColor: AppColor.defaultColor,
               textColor: AppColor.whiteColor,
               height: 53,

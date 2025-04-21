@@ -1,17 +1,45 @@
-import 'package:esortcli/app/modules/settings/privacy/controllers/privacy_controller.dart';
-import 'package:esortcli/app/widgets/round_button.dart';
+import 'package:esortcli/app/res/assests/image_assets.dart';
+import 'package:esortcli/app/res/colors/app_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import '../../../../res/assests/image_assets.dart';
-import '../../../../res/colors/app_color.dart';
 
-class PrivacyView extends GetView<PrivacyController> {
+class PrivacyView extends StatelessWidget {
   const PrivacyView({super.key});
+
+  Widget _buildTerm(String number, String description) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          number,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            fontFamily: 'Sora',
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            description,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              fontFamily: 'Sora',
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.blackColor,
+      backgroundColor: Colors.black, // Dark background as per the image
       appBar: AppBar(
         backgroundColor: AppColor.blackColor,
         leading: IconButton(
@@ -23,26 +51,28 @@ class PrivacyView extends GetView<PrivacyController> {
           onPressed: () => Get.back(),
         ),
         title: InkWell(
-          onTap: ()=> Get.back(),
+          onTap: () => Get.back(),
           child: Text(
             'Back',
             style: TextStyle(
               color: AppColor.defaultColor,
               fontWeight: FontWeight.w500,
-              fontSize: 16,
+              fontSize: 20,
               fontFamily: 'Roboto',
             ),
           ),
         ),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.only(left: 20.0, right: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 30),
             Align(
               alignment: Alignment.topLeft,
               child: Text(
-                'Manage Subscription',
+                'Privacy Policy',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
@@ -51,220 +81,50 @@ class PrivacyView extends GetView<PrivacyController> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            Container(
-              height: 310,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: AppColor.defaultdeepColor,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 30.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Row(
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'Bill No : ',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              TextSpan(
-                                text: '123',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'User Name : ',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              TextSpan(
-                                text: 'Mira',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'Purchase date : ',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              TextSpan(
-                                text: '19 FEB, 2025',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'Subscription Type : ',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              TextSpan(
-                                text: 'Standard',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'Subscription Amount : ',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              TextSpan(
-                                text: '\$40',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'Expire Date : ',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              TextSpan(
-                                text: '19 Sep, 2025',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
             const SizedBox(height: 30),
-            RoundButton(
-              title: "Update",
-              onPress: () {},
-              buttonColor: AppColor.defaultColor,
-              textColor: AppColor.whiteColor,
-              height: 53,
-              fontFamily: 'Poppins',
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              radius: 20,
+            const Text(
+              'By using the Business Coach Chatbot, you agree to the following terms:',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             const SizedBox(height: 20),
-            RoundButton(
-              title: "Cancel",
-              onPress: () {},
-              buttonColor: AppColor.blackColor,
-              textColor: AppColor.defaultColor,
-              borderColor: AppColor.defaultColor,
-              height: 53,
-              fontFamily: 'Poppins',
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              radius: 20,
+            // Terms list
+            _buildTerm(
+              '1.',
+              'The chatbot provides general business guidance and advice but is not a substitute for professional consulting services.',
+            ),
+            const SizedBox(height: 15),
+            _buildTerm(
+              '2.',
+              'We offer both free and paid subscription plans. Paid plans are billed on a recurring basis unless cancelled.',
+            ),
+            const SizedBox(height: 15),
+            _buildTerm(
+              '3.',
+              'User data is handled securely and in accordance with our PRIVACY POLICY.',
+            ),
+            const SizedBox(height: 15),
+            _buildTerm(
+              '4.',
+              'We are not responsible for decisions made based on the chatbot’s advice or any resulting outcomes.',
+            ),
+            const SizedBox(height: 15),
+            _buildTerm(
+              '5.',
+              'Misuse of the service or violation of these terms may result in termination of access.',
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'By continuing to use the chatbot, you accept these terms. For questions, contact our support team.',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Sora'
+              ),
             ),
           ],
         ),

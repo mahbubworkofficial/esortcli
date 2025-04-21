@@ -28,6 +28,7 @@ abstract class Routes {
       _Paths.SETTINGS + _Paths.PERSONAL_INFO + _Paths.CHANGE_INFO;
   static const CHANGE_PASS =
       _Paths.SETTINGS + _Paths.PERSONAL_INFO + _Paths.CHANGE_PASS;
+  static const SONIC_AI = _Paths.SETTINGS + _Paths.SONIC_AI;
 }
 
 abstract class _Paths {
@@ -55,4 +56,5 @@ abstract class _Paths {
   static const EDIT_INFO = '/edit-info';
   static const CHANGE_INFO = '/change-info';
   static const CHANGE_PASS = '/change-pass';
+  static const SONIC_AI = '/sonic-ai';
 }
