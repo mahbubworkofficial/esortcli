@@ -63,8 +63,8 @@ class _OnboardingViewState extends State<OnboardingView> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(
                     0xFF000000,
-                  ), // Button background color
-                  foregroundColor: Color(0xFFFFFFFF), // Text color
+                  ),
+                  foregroundColor: Color(0xFFFFFFFF),
                   textStyle: const TextStyle(
                     fontSize: 18,
                     fontStyle: FontStyle.normal,
@@ -97,8 +97,6 @@ class _OnboardingViewState extends State<OnboardingView> {
             ),
           ],
         ),
-        //   ],
-        // ),
       ),
     );
   }

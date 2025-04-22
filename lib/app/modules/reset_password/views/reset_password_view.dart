@@ -12,7 +12,6 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
 
   @override
   Widget build(BuildContext context) {
-    // Initialize controller with GetX
     Get.put(ResetPasswordController());
 
     return SafeArea(

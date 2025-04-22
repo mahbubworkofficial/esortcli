@@ -38,10 +38,10 @@ class InputTextWidget extends StatefulWidget {
   final String hintText, hintfontFamily, fontFamily;
   final double borderRadius, fontSize, hintfontSize;
   final Color borderColor, textColor, hintTextColor;
-  final double height, width,horizontal,vertical;
-  final bool obscureText, showImage,contentPadding,clockImage,reminderImage;
-  final String svgImagePath,clock,reminder; // General SVG image path
-  final String passwordIcon; // Single SVG for password field
+  final double height, width, horizontal, vertical;
+  final bool obscureText, showImage, contentPadding, clockImage, reminderImage;
+  final String svgImagePath, clock, reminder;
+  final String passwordIcon;
   final ValueChanged<String> onChanged;
   final String? Function(String?)? validator;
   final FontWeight fontWeight, hintfontWeight;
@@ -56,12 +56,12 @@ class _InputTextWidgetState extends State<InputTextWidget> {
   @override
   void initState() {
     super.initState();
-    _isObscured = widget.obscureText; // Initialize with widget's obscureText value
+    _isObscured = widget.obscureText;
   }
 
   void _toggleObscure() {
     setState(() {
-      _isObscured = !_isObscured; // Toggle the obscureText state
+      _isObscured = !_isObscured;
     });
   }
 
@@ -76,7 +76,6 @@ class _InputTextWidgetState extends State<InputTextWidget> {
       ),
       child: Row(
         children: [
-          // TextField with constrained width
           Expanded(
             child: TextField(
               onChanged: widget.onChanged,
@@ -90,9 +89,13 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                   fontFamily: widget.hintfontFamily,
                 ),
                 border: InputBorder.none,
-                contentPadding: widget.contentPadding
-                    ?  EdgeInsets.symmetric(horizontal: widget.horizontal, vertical: widget.vertical)
-                    : null,
+                contentPadding:
+                    widget.contentPadding
+                        ? EdgeInsets.symmetric(
+                          horizontal: widget.horizontal,
+                          vertical: widget.vertical,
+                        )
+                        : null,
               ),
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                 fontSize: widget.fontSize,
@@ -102,7 +105,6 @@ class _InputTextWidgetState extends State<InputTextWidget> {
               ),
             ),
           ),
-          // General SVG image (e.g., birthday icon)
           if (widget.showImage)
             Padding(
               padding: const EdgeInsets.only(right: 15),
@@ -112,12 +114,11 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                 height: 24,
               ),
             ),
-          // Single password SVG icon for password fields
           if (widget.obscureText)
             Padding(
               padding: const EdgeInsets.only(right: 15),
               child: GestureDetector(
-                onTap: _toggleObscure, // Toggle obscureText on tap
+                onTap: _toggleObscure,
                 child: SvgPicture.asset(
                   widget.passwordIcon,
                   width: 24,
@@ -128,21 +129,17 @@ class _InputTextWidgetState extends State<InputTextWidget> {
           if (widget.reminderImage)
             Padding(
               padding: const EdgeInsets.only(right: 15),
-              child:  SvgPicture.asset(
-                  ImageAssets.reminder,
-                  width: 24,
-                  height: 24,
-                ),
+              child: SvgPicture.asset(
+                ImageAssets.reminder,
+                width: 24,
+                height: 24,
               ),
+            ),
           if (widget.clockImage)
             Padding(
               padding: const EdgeInsets.only(right: 15),
-              child:  SvgPicture.asset(
-                  ImageAssets.clock,
-                  width: 24,
-                  height: 24,
-                ),
-              ),
+              child: SvgPicture.asset(ImageAssets.clock, width: 24, height: 24),
+            ),
         ],
       ),
     );

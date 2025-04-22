@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AiController extends GetxController with GetSingleTickerProviderStateMixin {
-  final RxBool isActive = false.obs; // Reactive state for toggle
+  final RxBool isActive = false.obs;
   late AnimationController _controller;
   late Animation<double> scaleAnimation;
 

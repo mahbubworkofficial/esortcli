@@ -16,8 +16,8 @@ class TaskDialog extends StatefulWidget {
 }
 
 class _TaskDialogState extends State<TaskDialog> {
-  bool _isYesChecked = true; // Default to "Yes" checked
-  bool _isNoChecked = false; // Default to "No" unchecked
+  bool _isYesChecked = true;
+  bool _isNoChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,6 @@ class _TaskDialogState extends State<TaskDialog> {
                   ),
                 ),
                 const SizedBox(height: 15),
-                // Checkbox with "Yes" and "No" labels
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -64,16 +63,13 @@ class _TaskDialogState extends State<TaskDialog> {
                         setState(() {
                           _isYesChecked = value ?? false;
                           if (_isYesChecked) {
-                            _isNoChecked = false; // Uncheck "No" when "Yes" is checked
+                            _isNoChecked = false;
                           }
                         });
                       },
-                      activeColor: AppColor.defaultColor, // Green when checked
-                      checkColor: AppColor.whiteColor, // White checkmark
-                      side: BorderSide(
-                        color: AppColor.defaultColor, // Gray border when unchecked
-                        width: 2,
-                      ),
+                      activeColor: AppColor.defaultColor,
+                      checkColor: AppColor.whiteColor,
+                      side: BorderSide(color: AppColor.defaultColor, width: 2),
                     ),
                     const Text(
                       'Yes',
@@ -91,16 +87,13 @@ class _TaskDialogState extends State<TaskDialog> {
                         setState(() {
                           _isNoChecked = value ?? false;
                           if (_isNoChecked) {
-                            _isYesChecked = false; // Uncheck "Yes" when "No" is checked
+                            _isYesChecked = false;
                           }
                         });
                       },
-                      activeColor: AppColor.defaultColor, // Green when checked
-                      checkColor: AppColor.whiteColor, // White checkmark
-                      side: BorderSide(
-                        color: AppColor.defaultColor, // Gray border when unchecked
-                        width: 2,
-                      ),
+                      activeColor: AppColor.defaultColor,
+                      checkColor: AppColor.whiteColor,
+                      side: BorderSide(color: AppColor.defaultColor, width: 2),
                     ),
                     const Text(
                       'No',
@@ -121,7 +114,7 @@ class _TaskDialogState extends State<TaskDialog> {
                       widget.onConfirm();
                       showSetReminderDialog(
                         title: 'How many Times you want shift\neach task',
-                      );// Trigger onConfirm only if "Yes" is checked
+                      );
                     }
                   },
                   height: 45,

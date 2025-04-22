@@ -7,27 +7,41 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class SetReminderDialog extends StatelessWidget {
-  const SetReminderDialog({
-    super.key,
-    this.title = 'Set Reminder',
-  });
+  const SetReminderDialog({super.key, this.title = 'Set Reminder'});
 
   final String title;
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SetReminderController());
-    // final minuteScrollController = FixedExtentScrollController(initialItem: controller.selectedMinute.value);
-    final List<String> hourList = List.generate(5, (_) => List.generate(12, (i) => (i + 1).toString().padLeft(2, '0'))).expand((e) => e).toList();
+    final List<String> hourList =
+        List.generate(
+          5,
+          (_) => List.generate(12, (i) => (i + 1).toString().padLeft(2, '0')),
+        ).expand((e) => e).toList();
     int middleChunkStart = (hourList.length ~/ 2) - 6;
-    int selectedHour = controller.selectedHour.value == 0 ? 1 : controller.selectedHour.value;
-    int initialHourIndex = hourList.indexOf(selectedHour.toString().padLeft(2, '0'), middleChunkStart);
-    final hourScrollController = FixedExtentScrollController(initialItem: initialHourIndex);
-    final List<String> minuteList = List.generate(5, (_) => List.generate(60, (i) => i.toString().padLeft(2, '0'))).expand((e) => e).toList();
+    int selectedHour =
+        controller.selectedHour.value == 0 ? 1 : controller.selectedHour.value;
+    int initialHourIndex = hourList.indexOf(
+      selectedHour.toString().padLeft(2, '0'),
+      middleChunkStart,
+    );
+    final hourScrollController = FixedExtentScrollController(
+      initialItem: initialHourIndex,
+    );
+    final List<String> minuteList =
+        List.generate(
+          5,
+          (_) => List.generate(60, (i) => i.toString().padLeft(2, '0')),
+        ).expand((e) => e).toList();
     int middleChunkStartMinute = (minuteList.length ~/ 2) - 30;
-    int initialMinuteIndex = minuteList.indexOf(controller.selectedMinute.value.toString().padLeft(2, '0'), middleChunkStartMinute);
-    final minuteScrollController = FixedExtentScrollController(initialItem: initialMinuteIndex);
-
+    int initialMinuteIndex = minuteList.indexOf(
+      controller.selectedMinute.value.toString().padLeft(2, '0'),
+      middleChunkStartMinute,
+    );
+    final minuteScrollController = FixedExtentScrollController(
+      initialItem: initialMinuteIndex,
+    );
 
     return Dialog(
       backgroundColor: AppColor.blackColor,
@@ -51,7 +65,7 @@ class SetReminderDialog extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Obx(
-                  () => Text(
+              () => Text(
                 controller.getFormattedDate(),
                 style: const TextStyle(
                   fontSize: 18,
@@ -79,9 +93,7 @@ class SetReminderDialog extends StatelessWidget {
                         fontFamily: 'Roboto',
                       ),
                     ),
-                    SvgPicture.asset(
-                      ImageAssets.setTime,
-                    ),
+                    SvgPicture.asset(ImageAssets.setTime),
                   ],
                 ),
                 const SizedBox(height: 16),
@@ -103,14 +115,17 @@ class SetReminderDialog extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            final currentIndex = hourScrollController.selectedItem;
+                            final currentIndex =
+                                hourScrollController.selectedItem;
                             final newIndex = currentIndex + 1;
                             hourScrollController.animateToItem(
                               newIndex,
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.easeInOut,
                             );
-                            final hourValue = int.parse(hourList[newIndex % hourList.length]);
+                            final hourValue = int.parse(
+                              hourList[newIndex % hourList.length],
+                            );
                             controller.onHourChanged(hourValue);
                           },
                           child: SvgPicture.asset(ImageAssets.upper_arrow),
@@ -119,7 +134,7 @@ class SetReminderDialog extends StatelessWidget {
                           width: 50,
                           height: 80,
                           child: Obx(
-                                () => ListWheelScrollView.useDelegate(
+                            () => ListWheelScrollView.useDelegate(
                               controller: hourScrollController,
                               itemExtent: 40,
                               onSelectedItemChanged: (index) {
@@ -130,38 +145,45 @@ class SetReminderDialog extends StatelessWidget {
                               useMagnifier: true,
                               magnification: 1.2,
                               childDelegate: ListWheelChildLoopingListDelegate(
-                                children: List.generate(
-                                  hourList.length,
-                                      (index) {
-                                    final displayHour = hourList[index];
-                                    final isSelected = int.parse(displayHour) == controller.selectedHour.value;
-                                    return Center(
-                                      child: Text(
-                                        displayHour,
-                                        style: TextStyle(
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.w500,
-                                          color: isSelected ? AppColor.defaultColor : AppColor.blackColor,
-                                          fontFamily: 'Roboto',
-                                        ),
+                                children: List.generate(hourList.length, (
+                                  index,
+                                ) {
+                                  final displayHour = hourList[index];
+                                  final isSelected =
+                                      int.parse(displayHour) ==
+                                      controller.selectedHour.value;
+                                  return Center(
+                                    child: Text(
+                                      displayHour,
+                                      style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            isSelected
+                                                ? AppColor.defaultColor
+                                                : AppColor.blackColor,
+                                        fontFamily: 'Roboto',
                                       ),
-                                    );
-                                  },
-                                ),
+                                    ),
+                                  );
+                                }),
                               ),
                             ),
                           ),
                         ),
                         GestureDetector(
                           onTap: () {
-                            final currentIndex = hourScrollController.selectedItem;
+                            final currentIndex =
+                                hourScrollController.selectedItem;
                             final newIndex = currentIndex - 1;
                             hourScrollController.animateToItem(
                               newIndex,
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.easeInOut,
                             );
-                            final hourValue = int.parse(hourList[newIndex % hourList.length]);
+                            final hourValue = int.parse(
+                              hourList[newIndex % hourList.length],
+                            );
                             controller.onHourChanged(hourValue);
                           },
                           child: SvgPicture.asset(ImageAssets.down_arrow),
@@ -183,7 +205,8 @@ class SetReminderDialog extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            int newMinute = (controller.selectedMinute.value + 1) % 60;
+                            int newMinute =
+                                (controller.selectedMinute.value + 1) % 60;
                             controller.onMinuteChanged(newMinute);
                             minuteScrollController.animateToItem(
                               newMinute,
@@ -191,51 +214,56 @@ class SetReminderDialog extends StatelessWidget {
                               curve: Curves.easeInOut,
                             );
                           },
-                          child: SvgPicture.asset(
-                            ImageAssets.upper_arrow,
-                          ),
+                          child: SvgPicture.asset(ImageAssets.upper_arrow),
                         ),
                         SizedBox(
                           width: 50,
                           height: 80,
                           child: Obx(
-                                () => ListWheelScrollView.useDelegate(
+                            () => ListWheelScrollView.useDelegate(
                               controller: minuteScrollController,
                               itemExtent: 40,
                               onSelectedItemChanged: (index) {
-                                final minuteValue = int.parse(minuteList[index]);
+                                final minuteValue = int.parse(
+                                  minuteList[index],
+                                );
                                 controller.onMinuteChanged(minuteValue);
                               },
                               physics: const FixedExtentScrollPhysics(),
                               useMagnifier: true,
                               magnification: 1.2,
                               childDelegate: ListWheelChildLoopingListDelegate(
-                                children: List.generate(
-                                  minuteList.length,
-                                      (index) {
-                                    final displayMinute = minuteList[index];
-                                    final isSelected = int.parse(displayMinute) == controller.selectedMinute.value;
+                                children: List.generate(minuteList.length, (
+                                  index,
+                                ) {
+                                  final displayMinute = minuteList[index];
+                                  final isSelected =
+                                      int.parse(displayMinute) ==
+                                      controller.selectedMinute.value;
 
-                                    return Center(
-                                      child: Text(
-                                        displayMinute,
-                                        style: TextStyle(
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.w500,
-                                          color: isSelected ? AppColor.whiteColor : AppColor.blackColor,
-                                          fontFamily: 'Roboto',
-                                        ),
+                                  return Center(
+                                    child: Text(
+                                      displayMinute,
+                                      style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            isSelected
+                                                ? AppColor.whiteColor
+                                                : AppColor.blackColor,
+                                        fontFamily: 'Roboto',
                                       ),
-                                    );
-                                  },
-                                ),
+                                    ),
+                                  );
+                                }),
                               ),
                             ),
                           ),
                         ),
                         GestureDetector(
                           onTap: () {
-                            int newMinute = (controller.selectedMinute.value - 1 + 60) % 60;
+                            int newMinute =
+                                (controller.selectedMinute.value - 1 + 60) % 60;
                             controller.onMinuteChanged(newMinute);
                             minuteScrollController.animateToItem(
                               newMinute,
@@ -243,17 +271,14 @@ class SetReminderDialog extends StatelessWidget {
                               curve: Curves.easeInOut,
                             );
                           },
-                          child: SvgPicture.asset(
-                            ImageAssets.down_arrow,
-                          ),
+                          child: SvgPicture.asset(ImageAssets.down_arrow),
                         ),
                       ],
                     ),
-                    // AM/PM Buttons in a Column
                     Column(
                       children: [
                         Obx(
-                              () => GestureDetector(
+                          () => GestureDetector(
                             onTap: () {
                               if (!controller.isAM.value) {
                                 controller.toggleAMPM();
@@ -273,9 +298,10 @@ class SetReminderDialog extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: controller.isAM.value
-                                      ? AppColor.defaultColor
-                                      : AppColor.whiteColor,
+                                  color:
+                                      controller.isAM.value
+                                          ? AppColor.defaultColor
+                                          : AppColor.whiteColor,
                                   fontFamily: 'Roboto',
                                 ),
                               ),
@@ -283,7 +309,7 @@ class SetReminderDialog extends StatelessWidget {
                           ),
                         ),
                         Obx(
-                              () => GestureDetector(
+                          () => GestureDetector(
                             onTap: () {
                               if (controller.isAM.value) {
                                 controller.toggleAMPM();
@@ -303,9 +329,10 @@ class SetReminderDialog extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: controller.isAM.value
-                                      ? AppColor.whiteColor
-                                      : AppColor.defaultColor,
+                                  color:
+                                      controller.isAM.value
+                                          ? AppColor.whiteColor
+                                          : AppColor.defaultColor,
                                   fontFamily: 'Roboto',
                                 ),
                               ),

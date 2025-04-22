@@ -2,7 +2,6 @@ import 'package:esortcli/app/widgets/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
 import '../../../../../res/assests/image_assets.dart';
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../widgets/input_text_widget.dart';

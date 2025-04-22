@@ -55,7 +55,7 @@ class CreateNoteDialog extends GetView<CategoryController> {
                       color: AppColor.whiteColor,
                     ),
                     onTap: () {
-                      Navigator.pop(context); // Close popup menu
+                      Navigator.pop(context);
                       Get.dialog(RenameDialog(onConfirm: () {}));
                     },
                   ),
@@ -187,7 +187,12 @@ class CreateNoteDialog extends GetView<CategoryController> {
                         radius: 10,
                         onPress: () {
                           Navigator.pop(context);
-                          Get.dialog(RenameDialog(onConfirm: () {},title: "Create New Category",));
+                          Get.dialog(
+                            RenameDialog(
+                              onConfirm: () {},
+                              title: "Create New Category",
+                            ),
+                          );
                         },
                       ),
                       const SizedBox(height: 15),
@@ -203,7 +208,12 @@ class CreateNoteDialog extends GetView<CategoryController> {
                         radius: 10,
                         onPress: () {
                           Navigator.pop(context);
-                          Get.dialog(RenameDialog(onConfirm: () {},title: "Create New Category"));
+                          Get.dialog(
+                            RenameDialog(
+                              onConfirm: () {},
+                              title: "Create New Category",
+                            ),
+                          );
                         },
                       ),
                     ],

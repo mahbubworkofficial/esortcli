@@ -220,7 +220,7 @@ class SettingsView extends GetView<SettingsController> {
                     ),
                     const SizedBox(height: 10),
                     InkWell(
-                      onTap: () {// Close popup menu
+                      onTap: () {
                         Get.dialog(SettingsPopView(
                             message:'Are you sure you want to delete all your\ndata?',
                             onConfirm: () {}));
@@ -250,7 +250,7 @@ class SettingsView extends GetView<SettingsController> {
                     ),
                     const SizedBox(height: 10),
                     InkWell(
-                      onTap: () {// Close popup menu
+                      onTap: () {
                       Get.dialog(SettingsPopView(
                           message:'Do you really want to log out?',
                           onConfirm: () {}));

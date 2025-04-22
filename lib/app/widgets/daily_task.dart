@@ -174,7 +174,7 @@ class DailyTask extends StatelessWidget {
                           clockImage: true,
                           onChanged: (value) {},
                           validator: (value) {
-                            return null; // Remove email validation for time field
+                            return null;
                           },
                         ),
                       ),
@@ -197,7 +197,7 @@ class DailyTask extends StatelessWidget {
                           borderColor: AppColor.defaultOpacity2Color,
                           onChanged: (value) {},
                           validator: (value) {
-                            return null; // Remove email validation for reminder field
+                            return null;
                           },
                         ),
                       ),
@@ -216,7 +216,7 @@ class DailyTask extends StatelessWidget {
                   borderColor: AppColor.defaultOpacity2Color,
                   onChanged: (value) {},
                   validator: (value) {
-                    return null; // Remove email validation for text area
+                    return null;
                   },
                 ),
                 const SizedBox(height: 20),
@@ -232,7 +232,7 @@ class DailyTask extends StatelessWidget {
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
                   radius: 10,
-                  width: double.infinity, // Ensure button takes full width
+                  width: double.infinity,
                 ),
                 const SizedBox(height: 10),
               ],

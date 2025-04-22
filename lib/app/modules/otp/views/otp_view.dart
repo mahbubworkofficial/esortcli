@@ -1,7 +1,8 @@
+import 'package:esortcli/app/res/colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../routes/app_pages.dart';
-import '../../../widgets/otp_input.dart';
 import '../../../widgets/round_button.dart';
 import '../controllers/otp_controller.dart';
 
@@ -12,12 +13,11 @@ class OtpView extends GetView<OtpController> {
 
   @override
   Widget build(BuildContext context) {
-    // Initialize controller with GetX
     Get.put(OtpController());
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: AppColor.blackColor,
         body: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -33,92 +33,56 @@ class OtpView extends GetView<OtpController> {
                       fontFamily: 'Urbanist',
                       fontWeight: FontWeight.w600,
                       fontSize: 40,
-                      color: Colors.white,
+                      color: AppColor.whiteColor,
                     ),
                   ),
                   const SizedBox(height: 95),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: OtpInputWidget(
-                          onChanged: (value) {
-                            controller.email.value = value;
-                          },
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your otp';
-                            }
-                            if (!GetUtils.isEmail(value)) {
-                              return 'Please enter a valid otp';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: OtpInputWidget(
-                          onChanged: (value) {
-                            controller.email.value = value;
-                          },
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your otp';
-                            }
-                            if (!GetUtils.isEmail(value)) {
-                              return 'Please enter a valid otp';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: OtpInputWidget(
-                          onChanged: (value) {
-                            controller.email.value = value;
-                          },
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your otp';
-                            }
-                            if (!GetUtils.isEmail(value)) {
-                              return 'Please enter a valid otp';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: OtpInputWidget(
-                          onChanged: (value) {
-                            controller.email.value = value;
-                          },
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your otp';
-                            }
-                            if (!GetUtils.isEmail(value)) {
-                              return 'Please enter a valid otp';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                    ],
+                  PinCodeTextField(
+                    appContext: context,
+                    length: 4,
+                    obscureText: false,
+                    animationType: AnimationType.fade,
+                    textStyle: const TextStyle(color: AppColor.whiteColor, fontSize: 20),
+                    pinTheme: PinTheme(
+                      shape: PinCodeFieldShape.box,
+                      borderRadius: BorderRadius.circular(10),
+                      fieldHeight: 55,
+                      fieldWidth: 60,
+                      activeFillColor: AppColor.blackColor,
+                      inactiveFillColor: AppColor.blackColor,
+                      selectedFillColor: AppColor.blackColor,
+                      activeColor: AppColor.defaultColor,
+                      inactiveColor: AppColor.defaultColor,
+                      selectedColor: AppColor.whiteColor,
+                    ),
+                    animationDuration: const Duration(milliseconds: 300),
+                    backgroundColor: Colors.transparent,
+                    enableActiveFill: true,
+                    onChanged: (value) {
+                      // controller.otp.value = value;
+                    },
+                    onCompleted: (value) {
+                      // controller.otp.value = value;
+                    },
+                    validator: (value) {
+                      if (value == null || value.length != 4) {
+                        return 'Please enter a 4-digit OTP';
+                      }
+                      if (!GetUtils.isNumericOnly(value)) {
+                        return 'OTP must be numeric';
+                      }
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 20),
                   Obx(
-                    () => RoundButton(
+                        () => RoundButton(
                       title: 'Verify',
                       loading: controller.isLoading.value,
                       onPress: () {
-                        Get.toNamed(Routes.RESET_PASSWORD);
                         if (_formKey.currentState!.validate()) {
                           controller.login();
+                          Get.toNamed(Routes.RESET_PASSWORD);
                         }
                       },
                     ),

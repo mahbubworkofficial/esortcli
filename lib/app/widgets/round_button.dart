@@ -19,7 +19,7 @@ class RoundButton extends StatelessWidget {
   });
 
   final bool loading;
-  final String title,fontFamily;
+  final String title, fontFamily;
   final double height, fontSize, radius, width;
   final VoidCallback onPress;
   final Color textColor, buttonColor, borderColor;
@@ -35,25 +35,21 @@ class RoundButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: buttonColor,
           borderRadius: BorderRadius.circular(radius),
-          border: Border.all(
-            color:borderColor,
-            width: 1.0,)
+          border: Border.all(color: borderColor, width: 1.0),
         ),
         child: Center(
           child:
-          loading
-              ? Center(child: const CircularProgressIndicator())
-              : Text(
-            title,
-            style: Theme.of(
-              context,
-            ).textTheme.titleMedium!.copyWith(
-              color: textColor,
-              fontSize: fontSize,
-              fontWeight: fontWeight,
-              fontFamily: fontFamily,
-            ),
-          ),
+              loading
+                  ? Center(child: const CircularProgressIndicator())
+                  : Text(
+                    title,
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: textColor,
+                      fontSize: fontSize,
+                      fontWeight: fontWeight,
+                      fontFamily: fontFamily,
+                    ),
+                  ),
         ),
       ),
     );

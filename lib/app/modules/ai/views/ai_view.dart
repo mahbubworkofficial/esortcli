@@ -29,13 +29,11 @@ class _AiViewState extends State<AiView> with SingleTickerProviderStateMixin {
     _initSpeech();
     _requestPermission();
 
-    // Initialize animation controller
     _animationController = AnimationController(
       duration: const Duration(milliseconds: 2000),
       vsync: this,
     );
 
-    // Create a pulse animation
     _animation = Tween(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
     );
@@ -47,7 +45,6 @@ class _AiViewState extends State<AiView> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
-  // Initialize speech recognition
   void _initSpeech() async {
     _speechInitialized = await _speech.initialize(
       onError: (error) => print('Error: $error'),
@@ -63,7 +60,6 @@ class _AiViewState extends State<AiView> with SingleTickerProviderStateMixin {
     print('Speech initialized: $_speechInitialized');
   }
 
-  // Request microphone permission
   void _requestPermission() async {
     var status = await Permission.microphone.request();
     if (status.isGranted) {
@@ -73,14 +69,11 @@ class _AiViewState extends State<AiView> with SingleTickerProviderStateMixin {
     }
   }
 
-  // Toggle listening
   void _listen() async {
     if (!_isListening) {
-      // Always start the animation regardless of speech recognition status
       _animationController.reset();
       _animationController.repeat();
 
-      // If speech isn't initialized yet, try to initialize it again
       if (!_speechInitialized) {
         _speechInitialized = await _speech.initialize(
           onStatus: (status) => print('Status: $status'),
@@ -98,7 +91,6 @@ class _AiViewState extends State<AiView> with SingleTickerProviderStateMixin {
               }),
         );
       } else {
-        // If speech recognition fails, keep animation going but don't show any message
         setState(() => _isListening = true);
         print("Speech recognition not available");
       }
@@ -301,7 +293,6 @@ class _AiViewState extends State<AiView> with SingleTickerProviderStateMixin {
                 children: [
                   InkWell(
                     onTap: () {
-                      // Close popup menu
                       Get.dialog(AiDialog(onConfirm: () {}));
                     },
                     child: SvgPicture.asset(

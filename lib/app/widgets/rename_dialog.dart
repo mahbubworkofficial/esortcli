@@ -17,9 +17,7 @@ class RenameDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       backgroundColor: AppColor.backgroundColor,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -69,9 +67,8 @@ class RenameDialog extends StatelessWidget {
                 color: AppColor.whiteColor,
               ),
             ),
-            Divider(height:1,color: AppColor.hintTextColor,),
+            Divider(height: 1, color: AppColor.hintTextColor),
             const SizedBox(height: 60),
-            // Set button
             Align(
               alignment: Alignment.bottomRight,
               child: ElevatedButton(
@@ -97,7 +94,7 @@ class RenameDialog extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 10)
+            const SizedBox(height: 10),
           ],
         ),
       ),

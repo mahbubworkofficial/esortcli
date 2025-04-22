@@ -27,7 +27,10 @@ class _InternetExceptionsWidgetState extends State<InternetExceptionsWidget> {
             child: Center(
               child: Text(
                 'internet_exception'.tr,
-                style: TextStyle(color: const Color.fromARGB(255, 12, 0, 2), fontSize: 20),
+                style: TextStyle(
+                  color: const Color.fromARGB(255, 12, 0, 2),
+                  fontSize: 20,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),

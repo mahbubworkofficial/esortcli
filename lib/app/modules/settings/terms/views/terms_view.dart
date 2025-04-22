@@ -39,7 +39,7 @@ class TermsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // Dark background as per the image
+      backgroundColor: AppColor.blackColor,
       appBar: AppBar(
         backgroundColor: AppColor.blackColor,
         leading: IconButton(

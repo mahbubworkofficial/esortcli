@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 
 class CatagoryListController extends GetxController {
-  //TODO: Implement CatagoryListController
 
   final count = 0.obs;
   @override

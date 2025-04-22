@@ -157,7 +157,7 @@ class LoginView extends GetView<LoginController> {
                               fontFamily: 'Lato',
                               fontWeight: FontWeight.w400,
                               fontSize: 12,
-                              color: Colors.white, // White color for "By Log up, "
+                              color: Colors.white,
                             ),
                           ),
                           WidgetSpan(
@@ -192,7 +192,7 @@ class LoginView extends GetView<LoginController> {
                               fontFamily: 'Lato',
                               fontWeight: FontWeight.w400,
                               fontSize: 12,
-                              color: Colors.white, // White color for "By Log up, "
+                              color: Colors.white,
                             ),
                           ),
                           TextSpan(
@@ -201,7 +201,7 @@ class LoginView extends GetView<LoginController> {
                               fontFamily: 'Lato',
                               fontWeight: FontWeight.w400,
                               fontSize: 12,
-                              color: AppColor.defaultColor, // Original color for the rest
+                              color: AppColor.defaultColor,
                             ),
                           ),
                           TextSpan(
@@ -210,7 +210,7 @@ class LoginView extends GetView<LoginController> {
                               fontFamily: 'Lato',
                               fontWeight: FontWeight.w400,
                               fontSize: 12,
-                              color: Colors.white, // White color for "By Log up, "
+                              color: Colors.white,
                             ),
                           ),
                           TextSpan(
@@ -219,7 +219,7 @@ class LoginView extends GetView<LoginController> {
                               fontFamily: 'Lato',
                               fontWeight: FontWeight.w400,
                               fontSize: 12,
-                              color: AppColor.defaultColor, // Original color for the rest
+                              color: AppColor.defaultColor,
                             ),
                           ),
                         ],
@@ -258,6 +258,7 @@ class LoginView extends GetView<LoginController> {
                         buttonColor: AppColor.facebookButtonColor.withAlpha(65),
                         textColor: AppColor.facebookTextColor,
                       ),
+                      const SizedBox(height: 15,),
                     ],
                   ),
                 ],

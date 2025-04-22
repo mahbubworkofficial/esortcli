@@ -36,14 +36,8 @@ class AppPages {
       page: () => HomeView(),
       transition: Transition.rightToLeft,
     ),
-    GetPage(
-      name: _Paths.ONBOARDING,
-      page: () => const OnboardingView(),
-    ),
-    GetPage(
-      name: _Paths.SPLASH,
-      page: () => const SplashScreen(),
-    ),
+    GetPage(name: _Paths.ONBOARDING, page: () => const OnboardingView()),
+    GetPage(name: _Paths.SPLASH, page: () => const SplashScreen()),
     GetPage(
       name: _Paths.LOGIN,
       page: () => LoginView(),

@@ -39,13 +39,16 @@ class InputResizeWidget extends StatelessWidget {
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: TextStyle(
-            color: Color(0xFF7C7C7C), // Custom hint text color
+            color: Color(0xFF7C7C7C),
             fontSize: 12,
             fontWeight: FontWeight.w400,
             fontFamily: 'Roboto',
           ),
           border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 15,
+            vertical: 15,
+          ),
         ),
         style: Theme.of(context).textTheme.titleMedium!.copyWith(
           fontSize: 12,

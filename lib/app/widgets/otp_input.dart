@@ -10,7 +10,6 @@ class OtpInputWidget extends StatelessWidget {
     this.borderColor = AppColor.defaultColor,
     this.height = 55.0,
     this.width = 60.0,
-
   });
 
   final double borderRadius;
@@ -32,13 +31,16 @@ class OtpInputWidget extends StatelessWidget {
         onChanged: onChanged,
         decoration: InputDecoration(
           border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 15,
+            vertical: 15,
+          ),
         ),
         style: Theme.of(context).textTheme.titleMedium!.copyWith(
           fontSize: 18,
           fontWeight: FontWeight.w500,
           fontFamily: 'Urbanist',
-          color: Color(0xFFFFFFFF)
+          color: Color(0xFFFFFFFF),
         ),
       ),
     );

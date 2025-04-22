@@ -16,7 +16,7 @@ class EdgeButton extends StatelessWidget {
   });
 
   final bool loading;
-  final String title,fontFamily;
+  final String title, fontFamily;
   final double height, width, fontSize;
   final VoidCallback onPress;
   final Color textColor, buttonColor;
@@ -35,19 +35,17 @@ class EdgeButton extends StatelessWidget {
         ),
         child: Center(
           child:
-          loading
-              ? Center(child: const CircularProgressIndicator())
-              : Text(
-            title,
-            style: Theme.of(
-              context,
-            ).textTheme.titleMedium!.copyWith(
-              color: textColor,
-              fontSize: fontSize,
-              fontWeight: fontWeight,
-              fontFamily: fontFamily,
-            ),
-          ),
+              loading
+                  ? Center(child: const CircularProgressIndicator())
+                  : Text(
+                    title,
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: textColor,
+                      fontSize: fontSize,
+                      fontWeight: fontWeight,
+                      fontFamily: fontFamily,
+                    ),
+                  ),
         ),
       ),
     );

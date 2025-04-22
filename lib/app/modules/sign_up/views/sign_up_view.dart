@@ -289,6 +289,7 @@ class SignUpView extends GetView<SignUpController> {
                         buttonColor: AppColor.facebookButtonColor.withAlpha(65),
                         textColor: AppColor.facebookTextColor,
                       ),
+                      const SizedBox(height: 15,),
                     ],
                   ),
                 ],

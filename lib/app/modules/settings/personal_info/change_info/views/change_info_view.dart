@@ -1,9 +1,10 @@
+import 'dart:io';
 import 'package:esortcli/app/modules/settings/personal_info/controllers/image_picker_controller.dart';
 import 'package:esortcli/app/widgets/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
+import 'package:image_picker/image_picker.dart';
 import '../../../../../res/assests/image_assets.dart';
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../widgets/input_text_widget.dart';
@@ -11,7 +12,7 @@ import '../controllers/change_info_controller.dart';
 
 class ChangeInfoView extends GetView<ChangeInfoController> {
   ChangeInfoView({super.key});
-  final ImagePickerController imagePickerController = Get.put(ImagePickerController());
+  final ImagePickerController ImagePickercontroller = Get.put(ImagePickerController());
 
   @override
   Widget build(BuildContext context) {
@@ -67,72 +68,100 @@ class ChangeInfoView extends GetView<ChangeInfoController> {
                       const SizedBox(height: 30),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Image.asset(
-                                'assets/images/img.png',
-                                width: 130,
-                                height: 130,
-                                fit: BoxFit.cover,
-                              ),
-                              Positioned(
-                                bottom: 0,
-                                right: 15,
-                                child: InkWell(
-                                  onTap: () {
-                                    imagePickerController.getImage();
-                                  },
-                                  child: SvgPicture.asset(ImageAssets.camera),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(width: 20),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                          Obx(() {
+                            return Stack(
+                              alignment: Alignment.center,
                               children: [
-                                Text(
-                                  'Mira',
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 30,
-                                    color: AppColor.whiteColor,
+                                CircleAvatar(
+                                  radius: 60,
+                                  backgroundImage:
+                                  ImagePickercontroller.imagePath.isNotEmpty
+                                          ? FileImage(
+                                            File(
+                                              ImagePickercontroller.imagePath
+                                                  .toString(),
+                                            ),
+                                          )
+                                          : null,
+                                ),
+                                Positioned(
+                                  bottom: 0,
+                                  right: 15,
+                                  child: InkWell(
+                                    onTap: () {
+                                      Get.bottomSheet(
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            InkWell(
+                                              onTap: () => ImagePickercontroller.getImage(ImageSource.camera),
+                                              child: SvgPicture.asset(
+                                                ImageAssets.camera,
+                                                height: 150,
+                                                width: 150,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 20),
+                                            InkWell(
+                                              onTap: () => ImagePickercontroller.getImage(ImageSource.gallery),
+                                              child: SvgPicture.asset(
+                                                ImageAssets.folder,
+                                                height: 150,
+                                                width: 150,
+                                                color: AppColor.defaultColor,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                    child: SvgPicture.asset(ImageAssets.camera),
                                   ),
                                 ),
-                                const SizedBox(height: 10),
-                                Row(
-                                  children: [
-                                    Text(
-                                      'Bio:',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14,
-                                        color: AppColor.whiteColor,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 5),
-                                    Expanded(
-                                      child: InputTextWidget(
-                                        borderRadius: 10,
-                                        height: 21,
-                                        contentPadding: false,
-                                        onChanged: (value) {
-                                          // Update bio in controller if needed
-                                        },
-                                        validator: (value) {
-                                          return null; // Remove email validation for bio
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                ),
                               ],
-                            ),
+                            );
+                          }),
+                          const SizedBox(width: 20),
+                          Column(
+                            children: [
+                              Text(
+                                'Mira',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 30,
+                                  color: AppColor.whiteColor,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Bio:',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                      color: AppColor.whiteColor,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 5),
+                                  InputTextWidget(
+                                    borderRadius: 10,
+                                    height: 21,
+                                    width: 160,
+                                    contentPadding: false,
+                                    onChanged: (value) {},
+                                    validator: (value) {
+                                      return null;
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -160,9 +189,7 @@ class ChangeInfoView extends GetView<ChangeInfoController> {
                             hintTextColor: AppColor.whiteColor,
                             borderRadius: 30,
                             height: 42,
-                            onChanged: (value) {
-                              // Update name in controller if needed
-                            },
+                            onChanged: (value) {},
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Please enter your name';
@@ -196,9 +223,7 @@ class ChangeInfoView extends GetView<ChangeInfoController> {
                             hintTextColor: AppColor.whiteColor,
                             borderRadius: 30,
                             height: 42,
-                            onChanged: (value) {
-                              // Update email in controller if needed
-                            },
+                            onChanged: (value) {},
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Please enter your email';
@@ -240,9 +265,7 @@ class ChangeInfoView extends GetView<ChangeInfoController> {
                                 borderRadius: 30,
                                 height: 42,
                                 showImage: true,
-                                onChanged: (value) {
-                                  // Update birthday in controller if needed
-                                },
+                                onChanged: (value) {},
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'Please enter your birthday';
@@ -263,7 +286,7 @@ class ChangeInfoView extends GetView<ChangeInfoController> {
                   RoundButton(
                     title: "Save",
                     onPress: () {
-                      Get.back(); // Close the screen
+                      Get.back();
                     },
                     buttonColor: AppColor.defaultColor,
                     textColor: AppColor.whiteColor,

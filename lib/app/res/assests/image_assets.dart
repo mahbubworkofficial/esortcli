@@ -42,4 +42,5 @@ class ImageAssets {
   static const String ai_note = 'assets/svg/ai_note.svg';
   static const String checkmark = 'assets/svg/checkmark.svg';
   static const String square = 'assets/svg/square.svg';
+  static const String folder = 'assets/svg/folder.svg';
 }

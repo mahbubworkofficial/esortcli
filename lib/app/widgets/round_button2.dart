@@ -36,9 +36,7 @@ class RoundButton2 extends StatelessWidget {
                   ? Center(child: const CircularProgressIndicator())
                   : Text(
                     title,
-                    style: Theme.of(
-                      context,
-                    ).textTheme.titleMedium!.copyWith(
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       color: textColor,
                       fontSize: 18,
                       fontWeight: FontWeight.w700,

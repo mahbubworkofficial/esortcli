@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+
 class AppColor {
   static const Color blackColor = Color(0xFF121212);
   static const Color whiteColor = Color(0xFFFFFFFF);
@@ -24,10 +25,17 @@ class AppColor {
   static const Color facebookTextColor = Color(0xFF4267B2);
   static const Color defaultColor = Color.fromRGBO(121, 167, 141, 1);
   static const Color defaultOpacity1Color = Color.fromRGBO(
-      121, 167, 141, 0.7019607843137254);
+    121,
+    167,
+    141,
+    0.7019607843137254,
+  );
   static const Color defaultOpacity2Color = Color.fromRGBO(
-      121, 167, 141, 0.5019607843137255);
+    121,
+    167,
+    141,
+    0.5019607843137255,
+  );
   static const Color blackOpacity1Color = Color(0x80121212);
   static const Color defaultdeepColor = Color(0xCC79A78D);
-
 }

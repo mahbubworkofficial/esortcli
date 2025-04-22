@@ -12,7 +12,8 @@ class CatagoryListView extends GetView<CatagoryListController> {
   const CatagoryListView({super.key});
 
   void _showPopupMenu(BuildContext context, Offset position) {
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject()! as RenderBox;
+    final RenderBox overlay =
+        Overlay.of(context).context.findRenderObject()! as RenderBox;
     showMenu(
       context: context,
       position: RelativeRect.fromLTRB(
@@ -23,19 +24,13 @@ class CatagoryListView extends GetView<CatagoryListController> {
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       color: AppColor.grayColor,
-      constraints: const BoxConstraints(
-        maxWidth: 40, // Enforce max width at the menu level
-        minWidth: 40, // Ensure min width matches
-      ),
+      constraints: const BoxConstraints(maxWidth: 40, minWidth: 40),
       items: [
         PopupMenuItem(
-          height: 60, // Compact height
+          height: 60,
           padding: EdgeInsets.zero,
           child: ConstrainedBox(
-            constraints: const BoxConstraints(
-              maxWidth: 50,
-              minWidth: 50,
-            ),
+            constraints: const BoxConstraints(maxWidth: 50, minWidth: 50),
             child: ClipRect(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -46,33 +41,39 @@ class CatagoryListView extends GetView<CatagoryListController> {
                       color: AppColor.whiteColor,
                     ),
                     onTap: () {
-                      Navigator.pop(context); // Close popup menu
-                      Get.dialog(DeleteDialog(
-                          message:'Do you want to delete the Note?',
-                          onConfirm: () {}));
+                      Navigator.pop(context);
+                      Get.dialog(
+                        DeleteDialog(
+                          message: 'Do you want to delete the Note?',
+                          onConfirm: () {},
+                        ),
+                      );
                     },
                   ),
-                  const SizedBox(height: 15), // Reduced spacing
+                  const SizedBox(height: 15),
                   InkWell(
                     child: SvgPicture.asset(
                       ImageAssets.rename,
                       color: AppColor.whiteColor,
                     ),
                     onTap: () {
-                      Navigator.pop(context); // Close popup menu
-                      Get.dialog(RenameDialog(
-                          title:'Rename the note?',
-                          onConfirm: () {}));
+                      Navigator.pop(context);
+                      Get.dialog(
+                        RenameDialog(
+                          title: 'Rename the note?',
+                          onConfirm: () {},
+                        ),
+                      );
                     },
                   ),
-                  const SizedBox(height: 15), // Reduced spacing
+                  const SizedBox(height: 15),
                   InkWell(
                     child: SvgPicture.asset(
                       ImageAssets.task,
                       color: AppColor.whiteColor,
                     ),
                     onTap: () {
-                      Navigator.pop(context); // Close popup menu
+                      Navigator.pop(context);
                       Get.dialog(RenameDialog(onConfirm: () {}));
                     },
                   ),
@@ -97,8 +98,7 @@ class CatagoryListView extends GetView<CatagoryListController> {
             height: 24,
             width: 12,
           ),
-          onPressed:
-              () => Get.toNamed(Routes.CATEGORY), // Navigate back using GetX
+          onPressed: () => Get.toNamed(Routes.CATEGORY),
         ),
         title: Text(
           'Back',

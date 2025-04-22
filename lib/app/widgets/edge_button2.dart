@@ -33,19 +33,17 @@ class EdgeButton2 extends StatelessWidget {
         ),
         child: Center(
           child:
-          loading
-              ? Center(child: const CircularProgressIndicator())
-              : Text(
-            title,
-            style: Theme.of(
-              context,
-            ).textTheme.titleMedium!.copyWith(
-              color: textColor,
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-              fontFamily: 'Urbanist',
-            ),
-          ),
+              loading
+                  ? Center(child: const CircularProgressIndicator())
+                  : Text(
+                    title,
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: textColor,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Urbanist',
+                    ),
+                  ),
         ),
       ),
     );

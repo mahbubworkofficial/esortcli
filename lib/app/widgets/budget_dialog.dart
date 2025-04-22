@@ -35,7 +35,7 @@ class BudgetDialog extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
-              crossAxisAlignment:CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 10),
                 Text(
@@ -58,17 +58,17 @@ class BudgetDialog extends StatelessWidget {
                   borderColor: AppColor.defaultOpacity2Color,
                 ),
                 const SizedBox(height: 30),
-                  RoundButton(
-                    title: 'Set',
-                    onPress: () => Get.back(),
-                    height: 45,
-                    radius: 10,
-                    buttonColor: AppColor.defaultColor,
-                    textColor: AppColor.whiteColor,
-                    fontFamily: "Roboto",
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                  ),
+                RoundButton(
+                  title: 'Set',
+                  onPress: () => Get.back(),
+                  height: 45,
+                  radius: 10,
+                  buttonColor: AppColor.defaultColor,
+                  textColor: AppColor.whiteColor,
+                  fontFamily: "Roboto",
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                ),
               ],
             ),
           ),

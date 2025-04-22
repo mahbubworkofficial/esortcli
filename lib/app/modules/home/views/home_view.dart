@@ -1,6 +1,5 @@
 import 'package:esortcli/app/modules/home/views/calender_view.dart';
 import 'package:esortcli/app/res/colors/app_color.dart';
-import 'package:esortcli/app/widgets/ai_dialog.dart';
 import 'package:esortcli/app/widgets/budget_dialog.dart';
 import 'package:esortcli/app/widgets/create_note_dialog.dart';
 import 'package:esortcli/app/widgets/custom_bottom_navigation_bar.dart';
@@ -9,7 +8,6 @@ import 'package:esortcli/app/widgets/input_resize_widget.dart';
 import 'package:esortcli/app/widgets/rename_dialog.dart';
 import 'package:esortcli/app/widgets/round_button.dart';
 import 'package:esortcli/app/widgets/task_dialog.dart';
-import 'package:esortcli/app/widgets/update_task.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -78,7 +76,6 @@ class HomeView extends GetView<HomeController> {
                       const SizedBox(height: 20),
                       InkWell(
                         onTap: () {
-                          // Close popup menu
                           Get.dialog(BudgetDialog(onConfirm: () {}));
                         },
                         child: SizedBox(
@@ -179,7 +176,6 @@ class HomeView extends GetView<HomeController> {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  // Close popup menu
                                   Get.dialog(
                                     TaskDialog(
                                       onConfirm: () {

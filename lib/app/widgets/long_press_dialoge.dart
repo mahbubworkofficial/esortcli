@@ -7,12 +7,13 @@ import '../res/colors/app_color.dart';
 import 'rename_dialog.dart';
 
 class LongPressDialoge extends StatelessWidget {
-  final Offset position; // Position of the long-press
+  final Offset position;
 
   const LongPressDialoge({Key? key, required this.position}) : super(key: key);
 
   void _showPopupMenu(BuildContext context, Offset position) {
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject()! as RenderBox;
+    final RenderBox overlay =
+        Overlay.of(context).context.findRenderObject()! as RenderBox;
     showMenu(
       context: context,
       position: RelativeRect.fromLTRB(
@@ -21,15 +22,13 @@ class LongPressDialoge extends StatelessWidget {
         overlay.size.width - position.dx,
         overlay.size.height - position.dy,
       ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       color: AppColor.grayColor,
       items: [
         PopupMenuItem(
           height: 70,
           child: SizedBox(
-            width: 150, // Width as per previous request
+            width: 150,
             child: Padding(
               padding: const EdgeInsets.all(5.0),
               child: Column(
@@ -43,10 +42,8 @@ class LongPressDialoge extends StatelessWidget {
                       color: AppColor.whiteColor,
                     ),
                     onTap: () {
-                      Navigator.pop(context); // Close popup menu
-                      Get.dialog(
-                        DeleteDialog(onConfirm: () {}),
-                      );
+                      Navigator.pop(context);
+                      Get.dialog(DeleteDialog(onConfirm: () {}));
                     },
                   ),
                   const SizedBox(height: 15),
@@ -58,10 +55,8 @@ class LongPressDialoge extends StatelessWidget {
                       color: AppColor.whiteColor,
                     ),
                     onTap: () {
-                      Navigator.pop(context); // Close popup menu
-                      Get.dialog(
-                        RenameDialog(onConfirm: () {}),
-                      );
+                      Navigator.pop(context);
+                      Get.dialog(RenameDialog(onConfirm: () {}));
                     },
                   ),
                 ],
@@ -75,14 +70,11 @@ class LongPressDialoge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Show popup menu after the widget is built
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _showPopupMenu(context, position);
-      // Close the dialog after showing the popup menu
       Navigator.pop(context);
     });
 
-    // Return an empty container since the dialog will close immediately
     return Container();
   }
 }

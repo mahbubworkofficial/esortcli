@@ -4,9 +4,7 @@ import 'package:get/get.dart';
 import '../res/assests/image_assets.dart';
 import '../res/colors/app_color.dart';
 
-// GetX Controller for managing TextAreaWidget state
 class TextAreaController extends GetxController {
-  // Add any reactive state if needed (e.g., for focus or character count)
   var isFocused = false.obs;
 
   void onFocusChange(bool hasFocus) {
@@ -31,7 +29,7 @@ class TextAreaWidget extends StatelessWidget {
     this.borderColor = AppColor.defaultColor,
     this.hintTextColor = AppColor.hintTextColor,
     this.textColor = AppColor.whiteColor,
-    this.height = 120.0, // Taller height for textarea
+    this.height = 120.0,
     this.width = double.infinity,
     this.hintfontFamily = 'Urbanist',
     this.hintfontSize = 18.0,
@@ -39,7 +37,7 @@ class TextAreaWidget extends StatelessWidget {
     this.fontSize = 18.0,
     this.fontWeight = FontWeight.w500,
     this.fontFamily = 'Urbanist',
-    this.maxLines = 5, // Default for textarea
+    this.maxLines = 5,
   });
 
   final String hintText, hintfontFamily, fontFamily;
@@ -55,8 +53,10 @@ class TextAreaWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Initialize GetX controller with unique tag to avoid conflicts
-    final controller = Get.put(TextAreaController(), tag: UniqueKey().toString());
+    final controller = Get.put(
+      TextAreaController(),
+      tag: UniqueKey().toString(),
+    );
 
     return Container(
       height: height,
@@ -66,13 +66,12 @@ class TextAreaWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start, // Align content to top for multi-line
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // TextField with constrained width
           Expanded(
             child: TextField(
               onChanged: onChanged,
-              maxLines: maxLines, // Enable multi-line input
+              maxLines: maxLines,
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: TextStyle(
@@ -82,9 +81,13 @@ class TextAreaWidget extends StatelessWidget {
                   fontFamily: hintfontFamily,
                 ),
                 border: InputBorder.none,
-                contentPadding: contentPadding
-                    ? const EdgeInsets.symmetric(horizontal: 15, vertical: 10)
-                    : null,
+                contentPadding:
+                    contentPadding
+                        ? const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 10,
+                        )
+                        : null,
               ),
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                 fontSize: fontSize,
@@ -96,35 +99,20 @@ class TextAreaWidget extends StatelessWidget {
               onEditingComplete: () => controller.onFocusChange(false),
             ),
           ),
-          // General SVG image (e.g., birthday icon)
           if (showImage)
             Padding(
               padding: const EdgeInsets.only(right: 15, top: 10),
-              child: SvgPicture.asset(
-                svgImagePath,
-                width: 24,
-                height: 24,
-              ),
+              child: SvgPicture.asset(svgImagePath, width: 24, height: 24),
             ),
-          // Reminder SVG icon
           if (reminderImage)
             Padding(
               padding: const EdgeInsets.only(right: 15, top: 10),
-              child: SvgPicture.asset(
-                reminder,
-                width: 24,
-                height: 24,
-              ),
+              child: SvgPicture.asset(reminder, width: 24, height: 24),
             ),
-          // Clock SVG icon
           if (clockImage)
             Padding(
               padding: const EdgeInsets.only(right: 15, top: 10),
-              child: SvgPicture.asset(
-                clock,
-                width: 24,
-                height: 24,
-              ),
+              child: SvgPicture.asset(clock, width: 24, height: 24),
             ),
         ],
       ),

@@ -12,7 +12,6 @@ class ForgetPasswordView extends GetView<ForgetPasswordController> {
 
   @override
   Widget build(BuildContext context) {
-    // Initialize controller with GetX
     Get.put(ForgetPasswordController());
 
     return SafeArea(

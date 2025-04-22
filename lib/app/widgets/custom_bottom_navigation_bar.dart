@@ -9,7 +9,8 @@ class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({Key? key}) : super(key: key);
 
   @override
-  _CustomBottomNavigationBarState createState() => _CustomBottomNavigationBarState();
+  _CustomBottomNavigationBarState createState() =>
+      _CustomBottomNavigationBarState();
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
@@ -52,13 +53,12 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       setState(() {
         _selectedIndex = index;
       });
-      Get.toNamed(_routes[index],);
+      Get.toNamed(_routes[index]);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-
     _updateSelectedIndex();
     return BottomNavigationBar(
       backgroundColor: const Color(0xFF1E1E1E),
@@ -75,7 +75,13 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             height: 58,
             width: 62,
             decoration: BoxDecoration(
-              border: Border.all(width: 2.0,color: _selectedIndex == index ? AppColor.defaultColor : AppColor.backgroundColor),
+              border: Border.all(
+                width: 2.0,
+                color:
+                    _selectedIndex == index
+                        ? AppColor.defaultColor
+                        : AppColor.backgroundColor,
+              ),
               borderRadius: BorderRadius.circular(10),
             ),
             child: SvgPicture.asset(

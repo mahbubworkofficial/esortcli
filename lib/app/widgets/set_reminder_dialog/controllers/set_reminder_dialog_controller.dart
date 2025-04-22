@@ -25,8 +25,7 @@ class SetReminderController extends GetxController {
   }
 
   void onHourChanged(int hour) {
-    selectedHour.value =
-        hour % 12 == 0 ? 12 : hour % 12;
+    selectedHour.value = hour % 12 == 0 ? 12 : hour % 12;
   }
 
   void onMinuteChanged(int minute) {

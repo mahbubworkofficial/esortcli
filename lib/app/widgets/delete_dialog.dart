@@ -17,16 +17,13 @@ class DeleteDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       backgroundColor: AppColor.redBackgroundColor,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Cross icon at top-right
             Align(
               alignment: Alignment.topRight,
               child: IconButton(
@@ -40,7 +37,6 @@ class DeleteDialog extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            // Text message
             Text(
               message,
               style: const TextStyle(
@@ -52,7 +48,6 @@ class DeleteDialog extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 44),
-            // OK button
             ElevatedButton(
               onPressed: () {
                 onConfirm();

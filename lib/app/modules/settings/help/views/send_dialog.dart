@@ -26,7 +26,6 @@ class SendDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Cross icon at top-right
             Align(
               alignment: Alignment.topRight,
               child: IconButton(

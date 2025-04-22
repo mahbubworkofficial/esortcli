@@ -60,7 +60,7 @@ class CategoryView extends GetView<CategoryController> {
                       color: AppColor.whiteColor,
                     ),
                     onTap: () {
-                      Navigator.pop(context); // Close popup menu
+                      Navigator.pop(context);
                       Get.dialog(RenameDialog(onConfirm: () {}));
                     },
                   ),
