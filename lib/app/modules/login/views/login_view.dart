@@ -139,7 +139,7 @@ class LoginView extends GetView<LoginController> {
                     title: 'Log in',
                     loading: controller.isLoading.value,
                     onPress: () {
-                      Get.toNamed(Routes.HOME);
+                      Get.offNamed(Routes.HOME);
                       if (_formKey.currentState!.validate()) {
                         controller.login();
                       }

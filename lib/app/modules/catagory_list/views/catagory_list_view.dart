@@ -61,7 +61,7 @@ class CatagoryListView extends GetView<CatagoryListController> {
                     onTap: () {
                       Navigator.pop(context); // Close popup menu
                       Get.dialog(RenameDialog(
-                          message:'Rename the note?',
+                          title:'Rename the note?',
                           onConfirm: () {}));
                     },
                   ),

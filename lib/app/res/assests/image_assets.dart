@@ -38,4 +38,8 @@ class ImageAssets {
   static const String setTime = 'assets/svg/setTime.svg';
   static const String upper_arrow = 'assets/svg/upper_arrow.svg';
   static const String down_arrow = 'assets/svg/down_arrow.svg';
+  static const String double_star = 'assets/svg/double_star.svg';
+  static const String ai_note = 'assets/svg/ai_note.svg';
+  static const String checkmark = 'assets/svg/checkmark.svg';
+  static const String square = 'assets/svg/square.svg';
 }

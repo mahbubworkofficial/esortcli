@@ -6,12 +6,12 @@ import '../res/colors/app_color.dart';
 
 class RenameDialog extends StatelessWidget {
   final VoidCallback onConfirm;
-  final String message;
+  final String title;
 
   const RenameDialog({
     Key? key,
     required this.onConfirm,
-    this.message = 'Rename the category?',
+    this.title = 'Rename the category?',
   }) : super(key: key);
 
   @override
@@ -41,7 +41,7 @@ class RenameDialog extends StatelessWidget {
             Align(
               alignment: Alignment.topLeft,
               child: Text(
-                message,
+                title,
                 style: const TextStyle(
                   fontFamily: 'Robot',
                   fontWeight: FontWeight.w500,
@@ -51,42 +51,33 @@ class RenameDialog extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Container(
-              decoration: const BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    color: AppColor.whiteColor,
-                    width: 0.5,
-                  ),
-                ),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Title',
-                  hintStyle: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'Roboto',
-                    color: AppColor.whiteColor,
-                  ),
-                  border: InputBorder.none,
-                ),
-                style: const TextStyle(
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Title',
+                hintStyle: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w400,
                   fontFamily: 'Roboto',
                   color: AppColor.whiteColor,
                 ),
+                border: InputBorder.none,
+              ),
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'Roboto',
+                color: AppColor.whiteColor,
               ),
             ),
+            Divider(height:1,color: AppColor.hintTextColor,),
             const SizedBox(height: 60),
             // Set button
             Align(
               alignment: Alignment.bottomRight,
               child: ElevatedButton(
                 onPressed: () {
-                  onConfirm();
                   Get.back();
+                  onConfirm();
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColor.defaultColor,

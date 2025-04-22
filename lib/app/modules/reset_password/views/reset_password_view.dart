@@ -92,7 +92,8 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
                       const SizedBox(height: 10),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: InputTextWidget(
+                        child:
+                        InputTextWidget(
                           hintText: 'Confirm your password',
                           obscureText: true,
                           onChanged: (value) {

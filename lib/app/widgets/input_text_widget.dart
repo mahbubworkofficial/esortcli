@@ -31,12 +31,14 @@ class InputTextWidget extends StatefulWidget {
     this.fontSize = 18.0,
     this.fontWeight = FontWeight.w500,
     this.fontFamily = 'Urbanist',
+    this.vertical = 10.0,
+    this.horizontal = 15.0,
   });
 
   final String hintText, hintfontFamily, fontFamily;
   final double borderRadius, fontSize, hintfontSize;
   final Color borderColor, textColor, hintTextColor;
-  final double height, width;
+  final double height, width,horizontal,vertical;
   final bool obscureText, showImage,contentPadding,clockImage,reminderImage;
   final String svgImagePath,clock,reminder; // General SVG image path
   final String passwordIcon; // Single SVG for password field
@@ -89,7 +91,7 @@ class _InputTextWidgetState extends State<InputTextWidget> {
                 ),
                 border: InputBorder.none,
                 contentPadding: widget.contentPadding
-                    ? const EdgeInsets.symmetric(horizontal: 15, vertical: 10)
+                    ?  EdgeInsets.symmetric(horizontal: widget.horizontal, vertical: widget.vertical)
                     : null,
               ),
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
@@ -126,27 +128,21 @@ class _InputTextWidgetState extends State<InputTextWidget> {
           if (widget.reminderImage)
             Padding(
               padding: const EdgeInsets.only(right: 15),
-              child: InkWell(
-                onTap: (){showSetReminderDialog();},
-                child: SvgPicture.asset(
+              child:  SvgPicture.asset(
                   ImageAssets.reminder,
                   width: 24,
                   height: 24,
                 ),
               ),
-            ),
           if (widget.clockImage)
             Padding(
               padding: const EdgeInsets.only(right: 15),
-              child: InkWell(
-                onTap: (){showSetReminderDialog();},
-                child: SvgPicture.asset(
+              child:  SvgPicture.asset(
                   ImageAssets.clock,
                   width: 24,
                   height: 24,
                 ),
               ),
-            ),
         ],
       ),
     );

@@ -168,7 +168,7 @@ class SignUpView extends GetView<SignUpController> {
                     title: 'Sign Up',
                     loading: controller.isLoading.value,
                     onPress: () {
-                      Get.toNamed(Routes.HOME);
+                      Get.offNamed(Routes.HOME);
                       if (_formKey.currentState!.validate()) {
                         controller.signUp();
                       }

@@ -3,6 +3,7 @@ import 'package:esortcli/app/res/colors/app_color.dart';
 import 'package:esortcli/app/widgets/calender.dart';
 import 'package:esortcli/app/widgets/input_text_widget.dart';
 import 'package:esortcli/app/widgets/round_button.dart';
+import 'package:esortcli/app/widgets/set_reminder_dialog/views/set_reminder_dialog_view.dart';
 import 'package:esortcli/app/widgets/text_area_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -78,55 +79,61 @@ class TaskView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      InputTextWidget(
-                        borderRadius: 10,
-                        height: 50,
-                        width: 180,
-                        hintText: ' Reminder',
-                        hintTextColor: AppColor.hintTextColor,
-                        hintfontWeight: FontWeight.w400,
-                        hintfontSize: 20,
-                        hintfontFamily: 'Roboto',
-                        borderColor: AppColor.defaultOpacity2Color,
-                        clockImage: true,
-                        onChanged: (value) {
+                      InkWell(
+                        onTap: (){showSetReminderDialog(title: 'Set Time');},
+                        child: InputTextWidget(
+                          borderRadius: 10,
+                          height: 50,
+                          width: 180,
+                          hintText: ' Time',
+                          hintTextColor: AppColor.hintTextColor,
+                          hintfontWeight: FontWeight.w400,
+                          hintfontSize: 20,
+                          hintfontFamily: 'Roboto',
+                          borderColor: AppColor.defaultOpacity2Color,
+                          clockImage: true,
+                          onChanged: (value) {
 
-                        },
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your email';
-                          }
-                          if (!GetUtils.isEmail(value)) {
-                            return 'Please enter a valid email';
-                          }
-                          return null;
-                        },
+                          },
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your email';
+                            }
+                            if (!GetUtils.isEmail(value)) {
+                              return 'Please enter a valid email';
+                            }
+                            return null;
+                          },
+                        ),
                       ),
                       const SizedBox(height: 10),
-                      InputTextWidget(
-                        borderRadius: 10,
-                        height: 50,
-                        width: 180,
-                        hintText: ' Reminder',
-                        hintTextColor: AppColor.hintTextColor,
-                        hintfontWeight: FontWeight.w400,
-                        hintfontSize: 20,
-                        hintfontFamily: 'Roboto',
-                        reminderImage: true,
-                        borderColor: AppColor.defaultOpacity2Color,
+                      InkWell(
+                        onTap: (){showSetReminderDialog();},
+                        child: InputTextWidget(
+                          borderRadius: 10,
+                          height: 50,
+                          width: 180,
+                          hintText: ' Reminder',
+                          hintTextColor: AppColor.hintTextColor,
+                          hintfontWeight: FontWeight.w400,
+                          hintfontSize: 20,
+                          hintfontFamily: 'Roboto',
+                          reminderImage: true,
+                          borderColor: AppColor.defaultOpacity2Color,
 
-                        onChanged: (value) {
+                          onChanged: (value) {
 
-                        },
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your email';
-                          }
-                          if (!GetUtils.isEmail(value)) {
-                            return 'Please enter a valid email';
-                          }
-                          return null;
-                        },
+                          },
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your email';
+                            }
+                            if (!GetUtils.isEmail(value)) {
+                              return 'Please enter a valid email';
+                            }
+                            return null;
+                          },
+                        ),
                       ),
                     ],
                   ),

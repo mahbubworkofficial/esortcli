@@ -1,6 +1,7 @@
 
 import 'package:esortcli/app/res/assests/image_assets.dart';
 import 'package:esortcli/app/res/colors/app_color.dart';
+import 'package:esortcli/app/routes/app_pages.dart';
 import 'package:esortcli/app/widgets/calender.dart';
 import 'package:esortcli/app/widgets/delete_dialog.dart';
 import 'package:esortcli/app/widgets/rename_dialog.dart';
@@ -11,7 +12,6 @@ import 'package:get/get.dart';
 
 class CalendarView extends StatelessWidget {
   CalendarView({super.key});
-
 
   void _showPopupMenu(BuildContext context, Offset position) {
     final RenderBox overlay = Overlay.of(context).context.findRenderObject()! as RenderBox;
@@ -64,7 +64,7 @@ class CalendarView extends StatelessWidget {
                     onTap: () {
                       Navigator.pop(context);
                       Get.dialog(RenameDialog(
-                        message: 'Rename the note?',
+                        title: 'Rename the note?',
                         onConfirm: () {},
                       ));
                     },
@@ -133,12 +133,32 @@ class CalendarView extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Container(
-                      width: 8,
-                      height: 8,
-                      decoration: const BoxDecoration(
-                        color: AppColor.defaultColor,
-                        shape: BoxShape.circle,
+                    InkWell(
+                      onTap: (){
+                        Get.back();
+                        Get.toNamed(Routes.TASK);},
+                      child: Container(
+                        width: 24,
+                        height: 24,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: AppColor.defaultColor,
+                            width: 2,
+                          ),
+                        ),
+                        child: Container(
+                          width: 15,
+                          height: 15,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: AppColor.defaultColor,
+                            border: Border.all(
+                              color: AppColor.blackColor,
+                              width: 2.5,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 12),

@@ -1,15 +1,21 @@
 import 'package:esortcli/app/modules/home/views/calender_view.dart';
 import 'package:esortcli/app/res/colors/app_color.dart';
+import 'package:esortcli/app/widgets/ai_dialog.dart';
+import 'package:esortcli/app/widgets/budget_dialog.dart';
+import 'package:esortcli/app/widgets/create_note_dialog.dart';
 import 'package:esortcli/app/widgets/custom_bottom_navigation_bar.dart';
+import 'package:esortcli/app/widgets/daily_task.dart';
 import 'package:esortcli/app/widgets/input_resize_widget.dart';
+import 'package:esortcli/app/widgets/rename_dialog.dart';
+import 'package:esortcli/app/widgets/round_button.dart';
+import 'package:esortcli/app/widgets/task_dialog.dart';
+import 'package:esortcli/app/widgets/update_task.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../res/assests/image_assets.dart';
 import '../../../utils/food_item_list_view.dart';
 import '../controllers/home_controller.dart';
-
-
 
 class HomeView extends GetView<HomeController> {
   HomeView({super.key});
@@ -70,13 +76,19 @@ class HomeView extends GetView<HomeController> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      SizedBox(
-                        height: 58,
-                        width: double.infinity,
-                        child: SvgPicture.asset(
-                          assetName,
-                          semanticsLabel: 'App Logo',
-                          fit: BoxFit.fill,
+                      InkWell(
+                        onTap: () {
+                          // Close popup menu
+                          Get.dialog(BudgetDialog(onConfirm: () {}));
+                        },
+                        child: SizedBox(
+                          height: 58,
+                          width: double.infinity,
+                          child: SvgPicture.asset(
+                            assetName,
+                            semanticsLabel: 'App Logo',
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -92,7 +104,18 @@ class HomeView extends GetView<HomeController> {
                               color: Colors.white,
                             ),
                           ),
-                          SvgPicture.asset('assets/svg/save.svg'),
+                          InkWell(
+                            onTap: () {
+                              Get.dialog(
+                                CreateNoteDialog(
+                                  onConfirm: () {
+                                    print('Confirmed!');
+                                  },
+                                ),
+                              );
+                            },
+                            child: SvgPicture.asset('assets/svg/save.svg'),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 5),
@@ -154,14 +177,27 @@ class HomeView extends GetView<HomeController> {
                           ),
                           Row(
                             children: [
-                              SvgPicture.asset(ImageAssets.note),
+                              InkWell(
+                                onTap: () {
+                                  // Close popup menu
+                                  Get.dialog(
+                                    TaskDialog(
+                                      onConfirm: () {
+                                        print('Confirmed!');
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: SvgPicture.asset(ImageAssets.note),
+                              ),
                               const SizedBox(width: 10),
                               InkWell(
-                                  onTap: (){
-                                    Get.dialog(CalendarView());
-                                    // CalendarView();
-                                  },
-                                  child: SvgPicture.asset(ImageAssets.calender)),
+                                onTap: () {
+                                  Get.dialog(CalendarView());
+                                  // CalendarView();
+                                },
+                                child: SvgPicture.asset(ImageAssets.calender),
+                              ),
                             ],
                           ),
                         ],
@@ -173,6 +209,31 @@ class HomeView extends GetView<HomeController> {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: RoundButton(
+                buttonColor: AppColor.defaultColor,
+                title: 'Create New Task',
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+                textColor: AppColor.whiteColor,
+                width: double.infinity,
+                height: 50,
+                radius: 10,
+                onPress: () {
+                  Get.dialog(
+                    RenameDialog(
+                      onConfirm: () {
+                        Get.dialog(DailyTask());
+                      },
+                      title: "Create New Task",
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 15),
             CustomBottomNavigationBar(),
           ],
         ),
