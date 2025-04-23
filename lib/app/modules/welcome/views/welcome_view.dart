@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../routes/app_pages.dart';
-import '../../../widgets/edge_button.dart';
 import '../../../widgets/round_button.dart';
 import '../controllers/welcome_controller.dart';
 
@@ -67,7 +66,10 @@ class WelcomeView extends GetView<WelcomeController> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    EdgeButton(
+                    RoundButton(
+                      height: 57,
+                      width: 165,
+                      radius: 10,
                       title: 'GOOGLE',
                       onPress: () {
                         Get.toNamed(Routes.LOGIN);
@@ -75,7 +77,10 @@ class WelcomeView extends GetView<WelcomeController> {
                       textColor: AppColor.googleTextColor,
                     ),
                     const SizedBox(width: 10,),
-                    EdgeButton(
+                    RoundButton(
+                      height: 57,
+                      width: 165,
+                      radius: 10,
                       title: 'FACEBOOK',
                       onPress: () {
                         Get.toNamed(Routes.LOGIN);

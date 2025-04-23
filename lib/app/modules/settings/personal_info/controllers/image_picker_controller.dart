@@ -10,7 +10,6 @@ class ImagePickerController extends GetxController {
 
   Future<void> getImage(ImageSource source) async {
     try {
-      // Reset previous state
       isLoading.value = true;
       errorMessage.value = '';
       imagePath.value = '';

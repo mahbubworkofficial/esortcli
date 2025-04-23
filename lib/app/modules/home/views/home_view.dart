@@ -4,7 +4,7 @@ import 'package:esortcli/app/widgets/budget_dialog.dart';
 import 'package:esortcli/app/widgets/create_note_dialog.dart';
 import 'package:esortcli/app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:esortcli/app/widgets/daily_task.dart';
-import 'package:esortcli/app/widgets/input_resize_widget.dart';
+import 'package:esortcli/app/widgets/input_text_widget.dart';
 import 'package:esortcli/app/widgets/rename_dialog.dart';
 import 'package:esortcli/app/widgets/round_button.dart';
 import 'package:esortcli/app/widgets/task_dialog.dart';
@@ -116,12 +116,13 @@ class HomeView extends GetView<HomeController> {
                         ],
                       ),
                       const SizedBox(height: 5),
-                      InputResizeWidget(
+                      InputTextWidget(
                         hintText: 'Type your note',
                         height: 129.0,
                         onChanged: (value) {
                           print('Text changed: $value');
                         },
+                        maxLines: 10,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter a value';
@@ -146,12 +147,13 @@ class HomeView extends GetView<HomeController> {
                         ],
                       ),
                       const SizedBox(height: 5),
-                      InputResizeWidget(
+                      InputTextWidget(
                         hintText: 'I need Milk for breakfast',
                         height: 129.0,
                         onChanged: (value) {
                           print('Text changed: $value');
                         },
+                        maxLines: 10,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter a value';

@@ -2,8 +2,8 @@ import 'package:esortcli/app/res/assests/image_assets.dart';
 import 'package:esortcli/app/res/colors/app_color.dart';
 import 'package:esortcli/app/routes/app_pages.dart';
 import 'package:esortcli/app/widgets/custom_bottom_navigation_bar.dart';
-import 'package:esortcli/app/widgets/edge_button.dart';
 import 'package:esortcli/app/widgets/rename_dialog.dart';
+import 'package:esortcli/app/widgets/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -94,11 +94,11 @@ class CategoryView extends GetView<CategoryController> {
                             Row(
                               children: [
                                 Container(
-                                  width: 32,
-                                  height: 27.5,
+                                  width: 37,
+                                  height: 34.5,
                                 ),
                                 Container(
-                                  width: 35,
+                                  width: 39,
                                   height: 27.5,
                                   decoration: BoxDecoration(
                                     border: Border(
@@ -125,7 +125,7 @@ class CategoryView extends GetView<CategoryController> {
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 16,
+                                  fontSize: 18,
                                   color: AppColor.defaultColor,
                                 ),
                               ),
@@ -143,7 +143,7 @@ class CategoryView extends GetView<CategoryController> {
                         },
                         child: SvgPicture.asset(
                           ImageAssets.agenda,
-                          height: 65,
+                          height: 75,
                           width: double.infinity,
                         ),
                       ),
@@ -157,7 +157,7 @@ class CategoryView extends GetView<CategoryController> {
                         },
                         child: SvgPicture.asset(
                           ImageAssets.creativity,
-                          height: 65,
+                          height: 75,
                           width: double.infinity,
                         ),
                       ),
@@ -171,7 +171,7 @@ class CategoryView extends GetView<CategoryController> {
                         },
                         child: SvgPicture.asset(
                           ImageAssets.learning,
-                          height: 65,
+                          height: 75,
                           width: double.infinity,
                         ),
                       ),
@@ -185,7 +185,7 @@ class CategoryView extends GetView<CategoryController> {
                         },
                         child: SvgPicture.asset(
                           ImageAssets.progress,
-                          height: 65,
+                          height: 75,
                           width: double.infinity,
                         ),
                       ),
@@ -196,16 +196,17 @@ class CategoryView extends GetView<CategoryController> {
             ),
             Padding(
               padding: const EdgeInsets.only(right: 20, left: 20),
-              child: EdgeButton(
+              child: RoundButton(
                 buttonColor: AppColor.defaultColor,
                 title: 'Add New Section',
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w500,
-                fontSize: 14,
+                fontSize: 16,
                 onPress: () {},
                 textColor: AppColor.whiteColor,
                 width: double.infinity,
-                height: 50,
+                height: 60,
+                radius: 10,
               ),
             ),
             const SizedBox(height: 10),

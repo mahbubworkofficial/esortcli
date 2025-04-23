@@ -1,4 +1,3 @@
-import 'package:esortcli/app/widgets/input_resize_widget.dart';
 import 'package:esortcli/app/widgets/input_text_widget.dart';
 import 'package:esortcli/app/widgets/round_button.dart';
 import 'package:flutter/material.dart';
@@ -49,15 +48,15 @@ class BudgetDialog extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 InputTextWidget(
-                  hintText: 'type Your budget',
+                  hintText: 'Type Your Budget',
                   onChanged: (value) {},
-                  height: 40,
+                  height: 45,
                   hintfontWeight: FontWeight.w400,
-                  hintfontSize: 14,
-                  vertical: 15,
+                  hintfontSize: 16,
+                  vertical: 12,
                   borderColor: AppColor.defaultOpacity2Color,
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 35),
                 RoundButton(
                   title: 'Set',
                   onPress: () => Get.back(),

@@ -164,14 +164,16 @@ class DailyTask extends StatelessWidget {
                         },
                         child: InputTextWidget(
                           borderRadius: 10,
-                          height: 50,
-                          hintText: 'Time',
+                          height: 40,
+                          hintText: ' Time',
                           hintTextColor: AppColor.hintTextColor,
                           hintfontWeight: FontWeight.w400,
                           hintfontSize: 20,
                           hintfontFamily: 'Roboto',
                           borderColor: AppColor.defaultOpacity2Color,
                           clockImage: true,
+                          vertical: 6,
+                          backgroundColor: AppColor.backgroundColor,
                           onChanged: (value) {},
                           validator: (value) {
                             return null;
@@ -187,14 +189,16 @@ class DailyTask extends StatelessWidget {
                         },
                         child: InputTextWidget(
                           borderRadius: 10,
-                          height: 50,
-                          hintText: 'Reminder',
+                          height: 40,
+                          hintText: ' Reminder',
                           hintTextColor: AppColor.hintTextColor,
                           hintfontWeight: FontWeight.w400,
                           hintfontSize: 20,
                           hintfontFamily: 'Roboto',
                           reminderImage: true,
+                          vertical: 6,
                           borderColor: AppColor.defaultOpacity2Color,
+                          backgroundColor: AppColor.backgroundColor,
                           onChanged: (value) {},
                           validator: (value) {
                             return null;
@@ -205,7 +209,7 @@ class DailyTask extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                TextAreaWidget(
+                InputTextWidget(
                   borderRadius: 10,
                   height: 140,
                   hintText: 'Needs',
@@ -215,6 +219,7 @@ class DailyTask extends StatelessWidget {
                   hintfontFamily: 'Roboto',
                   borderColor: AppColor.defaultOpacity2Color,
                   onChanged: (value) {},
+                  maxLines: 10,
                   validator: (value) {
                     return null;
                   },

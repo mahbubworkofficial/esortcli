@@ -42,7 +42,7 @@ class DeleteDialog extends StatelessWidget {
               style: const TextStyle(
                 fontFamily: 'Lexend',
                 fontWeight: FontWeight.w400,
-                fontSize: 16,
+                fontSize: 20,
                 color: AppColor.redTextColor,
               ),
               textAlign: TextAlign.center,
@@ -59,14 +59,14 @@ class DeleteDialog extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                minimumSize: const Size(90, 40),
+                minimumSize: const Size(100, 45),
               ),
               child: const Text(
                 'OK',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w500,
-                  fontSize: 14,
+                  fontSize: 18,
                   color: AppColor.whiteColor,
                 ),
               ),

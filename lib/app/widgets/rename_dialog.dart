@@ -43,7 +43,7 @@ class RenameDialog extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'Robot',
                   fontWeight: FontWeight.w500,
-                  fontSize: 16,
+                  fontSize: 18,
                   color: AppColor.whiteColor,
                 ),
               ),
@@ -81,14 +81,14 @@ class RenameDialog extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  minimumSize: const Size(76, 30),
+                  minimumSize: const Size(106, 35),
                 ),
                 child: const Text(
                   'Set',
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w400,
-                    fontSize: 12,
+                    fontSize: 16,
                     color: AppColor.whiteColor,
                   ),
                 ),

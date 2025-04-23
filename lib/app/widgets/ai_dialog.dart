@@ -1,4 +1,4 @@
-import 'package:esortcli/app/widgets/input_resize_widget.dart';
+import 'package:esortcli/app/widgets/input_text_widget.dart';
 import 'package:esortcli/app/widgets/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,7 +15,7 @@ class AiDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      backgroundColor: AppColor.backgroundColor,
+      backgroundColor: AppColor.blackColor,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -36,14 +36,18 @@ class AiDialog extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 10),
-                InputResizeWidget(
+                InputTextWidget(
                   hintText: 'Need',
                   onChanged: (value) {},
                   height: 90,
+                  maxLines: 10,
                   borderColor: AppColor.defaultOpacity2Color,
+                  backgroundColor: AppColor.backgroundColor,
+
                 ),
                 const SizedBox(height: 20),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     RoundButton(
                       title: 'Yes',

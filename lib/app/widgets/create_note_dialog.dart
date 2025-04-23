@@ -1,7 +1,6 @@
 import 'package:esortcli/app/modules/category/controllers/category_controller.dart';
 import 'package:esortcli/app/routes/app_pages.dart';
 import 'package:esortcli/app/widgets/delete_dialog.dart';
-import 'package:esortcli/app/widgets/edge_button.dart';
 import 'package:esortcli/app/widgets/rename_dialog.dart';
 import 'package:esortcli/app/widgets/round_button.dart';
 import 'package:flutter/material.dart';

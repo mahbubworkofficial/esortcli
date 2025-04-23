@@ -12,7 +12,9 @@ import '../controllers/change_info_controller.dart';
 
 class ChangeInfoView extends GetView<ChangeInfoController> {
   ChangeInfoView({super.key});
-  final ImagePickerController ImagePickercontroller = Get.put(ImagePickerController());
+  final ImagePickerController ImagePickercontroller = Get.put(
+    ImagePickerController(),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +79,7 @@ class ChangeInfoView extends GetView<ChangeInfoController> {
                                 CircleAvatar(
                                   radius: 60,
                                   backgroundImage:
-                                  ImagePickercontroller.imagePath.isNotEmpty
+                                      ImagePickercontroller.imagePath.isNotEmpty
                                           ? FileImage(
                                             File(
                                               ImagePickercontroller.imagePath
@@ -97,7 +99,11 @@ class ChangeInfoView extends GetView<ChangeInfoController> {
                                               MainAxisAlignment.center,
                                           children: [
                                             InkWell(
-                                              onTap: () => ImagePickercontroller.getImage(ImageSource.camera),
+                                              onTap:
+                                                  () =>
+                                                      ImagePickercontroller.getImage(
+                                                        ImageSource.camera,
+                                                      ),
                                               child: SvgPicture.asset(
                                                 ImageAssets.camera,
                                                 height: 150,
@@ -106,7 +112,11 @@ class ChangeInfoView extends GetView<ChangeInfoController> {
                                             ),
                                             const SizedBox(width: 20),
                                             InkWell(
-                                              onTap: () => ImagePickercontroller.getImage(ImageSource.gallery),
+                                              onTap:
+                                                  () =>
+                                                      ImagePickercontroller.getImage(
+                                                        ImageSource.gallery,
+                                                      ),
                                               child: SvgPicture.asset(
                                                 ImageAssets.folder,
                                                 height: 150,
@@ -153,7 +163,9 @@ class ChangeInfoView extends GetView<ChangeInfoController> {
                                     borderRadius: 10,
                                     height: 21,
                                     width: 160,
-                                    contentPadding: false,
+                                    fontSize: 14,
+                                    vertical: 9,
+                                    horizontal: 6,
                                     onChanged: (value) {},
                                     validator: (value) {
                                       return null;

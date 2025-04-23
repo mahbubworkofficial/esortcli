@@ -22,6 +22,7 @@ class TextAreaWidget extends StatelessWidget {
     this.clockImage = false,
     this.reminderImage = false,
     this.contentPadding = true,
+    this.obscureText = true,
     this.svgImagePath = ImageAssets.birthday,
     this.reminder = ImageAssets.reminder,
     this.clock = ImageAssets.clock,
@@ -29,6 +30,7 @@ class TextAreaWidget extends StatelessWidget {
     this.borderColor = AppColor.defaultColor,
     this.hintTextColor = AppColor.hintTextColor,
     this.textColor = AppColor.whiteColor,
+    this.backgroundColor = AppColor.blackColor,
     this.height = 120.0,
     this.width = double.infinity,
     this.hintfontFamily = 'Urbanist',
@@ -42,9 +44,9 @@ class TextAreaWidget extends StatelessWidget {
 
   final String hintText, hintfontFamily, fontFamily;
   final double borderRadius, fontSize, hintfontSize;
-  final Color borderColor, textColor, hintTextColor;
+  final Color borderColor, textColor, hintTextColor,backgroundColor;
   final double height, width;
-  final bool showImage, contentPadding, clockImage, reminderImage;
+  final bool showImage, contentPadding, clockImage, reminderImage,obscureText;
   final String svgImagePath, clock, reminder;
   final ValueChanged<String> onChanged;
   final String? Function(String?)? validator;
@@ -62,6 +64,7 @@ class TextAreaWidget extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
+        color: backgroundColor,
         border: Border.all(color: borderColor),
         borderRadius: BorderRadius.circular(borderRadius),
       ),
@@ -72,6 +75,7 @@ class TextAreaWidget extends StatelessWidget {
             child: TextField(
               onChanged: onChanged,
               maxLines: maxLines,
+              obscureText: obscureText,
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: TextStyle(

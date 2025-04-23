@@ -31,7 +31,7 @@ class SettingsView extends GetView<SettingsController> {
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
-                          fontSize: 20,
+                          fontSize: 28,
                           color: AppColor.defaultColor,
                         ),
                       ),
@@ -51,13 +51,13 @@ class SettingsView extends GetView<SettingsController> {
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
-                              fontSize: 20,
+                              fontSize: 24,
                               color: AppColor.whiteColor,
                             ),
                           ),
                           Container(
-                            width: 30,
-                            height: 25,
+                            width: 50,
+                            height: 45,
                             child: ClipRRect(
                               child: FittedBox(
                                 fit: BoxFit.contain,
@@ -80,7 +80,7 @@ class SettingsView extends GetView<SettingsController> {
                       ),
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         Get.toNamed(Routes.SUBSCRIPTION);
                       },
                       child: Container(
@@ -97,18 +97,20 @@ class SettingsView extends GetView<SettingsController> {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
-                                fontSize: 20,
+                                fontSize: 24,
                                 color: AppColor.whiteColor,
                               ),
                             ),
-                            SvgPicture.asset(ImageAssets.forward_arrow),
+                            SvgPicture.asset(ImageAssets.forward_arrow,
+                              height: 35,
+                              width: 35,),
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         Get.toNamed(Routes.PERSONAL_INFO);
                       },
                       child: Container(
@@ -125,18 +127,20 @@ class SettingsView extends GetView<SettingsController> {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
-                                fontSize: 20,
+                                fontSize: 24,
                                 color: AppColor.whiteColor,
                               ),
                             ),
-                            SvgPicture.asset(ImageAssets.forward_arrow),
+                            SvgPicture.asset(ImageAssets.forward_arrow,
+                              height: 35,
+                              width: 35,),
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         Get.toNamed(Routes.HELP);
                       },
                       child: Container(
@@ -153,18 +157,20 @@ class SettingsView extends GetView<SettingsController> {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
-                                fontSize: 20,
+                                fontSize: 24,
                                 color: AppColor.whiteColor,
                               ),
                             ),
-                            SvgPicture.asset(ImageAssets.forward_arrow),
+                            SvgPicture.asset(ImageAssets.forward_arrow,
+                              height: 35,
+                              width: 35,),
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         Get.toNamed(Routes.TERMS);
                       },
                       child: Container(
@@ -181,18 +187,20 @@ class SettingsView extends GetView<SettingsController> {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
-                                fontSize: 20,
+                                fontSize: 24,
                                 color: AppColor.whiteColor,
                               ),
                             ),
-                            SvgPicture.asset(ImageAssets.forward_arrow),
+                            SvgPicture.asset(ImageAssets.forward_arrow,
+                              height: 35,
+                              width: 35,),
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         Get.toNamed(Routes.PRIVACY);
                       },
                       child: Container(
@@ -209,21 +217,27 @@ class SettingsView extends GetView<SettingsController> {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
-                                fontSize: 20,
+                                fontSize: 24,
                                 color: AppColor.whiteColor,
                               ),
                             ),
-                            SvgPicture.asset(ImageAssets.forward_arrow),
+                            SvgPicture.asset(ImageAssets.forward_arrow,
+                              height: 35,
+                              width: 35,),
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     InkWell(
                       onTap: () {
-                        Get.dialog(SettingsPopView(
-                            message:'Are you sure you want to delete all your\ndata?',
-                            onConfirm: () {}));
+                        Get.dialog(
+                          SettingsPopView(
+                            message:
+                                'Are you sure you want to delete all your\ndata?',
+                            onConfirm: () {},
+                          ),
+                        );
                       },
                       child: Container(
                         height: 30,
@@ -239,22 +253,27 @@ class SettingsView extends GetView<SettingsController> {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
-                                fontSize: 20,
+                                fontSize: 24,
                                 color: AppColor.whiteColor,
                               ),
                             ),
-                            SvgPicture.asset(ImageAssets.delete_data),
+                            SvgPicture.asset(ImageAssets.delete_data,
+                              height: 24,
+                              width: 24,),
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     InkWell(
                       onTap: () {
-                      Get.dialog(SettingsPopView(
-                          message:'Do you really want to log out?',
-                          onConfirm: () {}));
-                    },
+                        Get.dialog(
+                          SettingsPopView(
+                            message: 'Do you really want to log out?',
+                            onConfirm: () {},
+                          ),
+                        );
+                      },
                       child: Container(
                         height: 30,
                         width: double.infinity,
@@ -269,11 +288,17 @@ class SettingsView extends GetView<SettingsController> {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
-                                fontSize: 20,
-                                color: Color(0xFFFF0000),
+                                fontSize: 24,
+                                color: AppColor.redTextColor,
                               ),
                             ),
-                            InkWell(child: SvgPicture.asset(ImageAssets.logout)),
+                            InkWell(
+                              child: SvgPicture.asset(
+                                ImageAssets.logout,
+                                height: 24,
+                                width: 24,
+                              ),
+                            ),
                           ],
                         ),
                       ),

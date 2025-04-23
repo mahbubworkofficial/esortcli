@@ -241,13 +241,11 @@ class UpdateTask extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
-                          onTap: () {
-                            showSetReminderDialog(title: 'Set Time');
-                          },
+                          onTap: (){showSetReminderDialog(title: 'Set Time');},
                           child: InputTextWidget(
                             borderRadius: 10,
-                            height: 50,
-                            width: 180,
+                            height: 40,
+                            width: 190,
                             hintText: ' Time',
                             hintTextColor: AppColor.hintTextColor,
                             hintfontWeight: FontWeight.w400,
@@ -255,7 +253,11 @@ class UpdateTask extends StatelessWidget {
                             hintfontFamily: 'Roboto',
                             borderColor: AppColor.defaultOpacity2Color,
                             clockImage: true,
-                            onChanged: (value) {},
+                            vertical: 6,
+                            backgroundColor: AppColor.backgroundColor,
+                            onChanged: (value) {
+
+                            },
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Please enter your email';
@@ -267,24 +269,25 @@ class UpdateTask extends StatelessWidget {
                             },
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 5),
                         InkWell(
-                          onTap: () {
-                            showSetReminderDialog();
-                          },
+                          onTap: (){showSetReminderDialog();},
                           child: InputTextWidget(
                             borderRadius: 10,
-                            height: 50,
-                            width: 180,
+                            height: 40,
+                            width: 190,
                             hintText: ' Reminder',
                             hintTextColor: AppColor.hintTextColor,
                             hintfontWeight: FontWeight.w400,
                             hintfontSize: 20,
                             hintfontFamily: 'Roboto',
                             reminderImage: true,
+                            vertical: 6,
                             borderColor: AppColor.defaultOpacity2Color,
+                            backgroundColor: AppColor.backgroundColor,
+                            onChanged: (value) {
 
-                            onChanged: (value) {},
+                            },
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Please enter your email';
@@ -299,7 +302,7 @@ class UpdateTask extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    TextAreaWidget(
+                    InputTextWidget(
                       borderRadius: 10,
                       height: 140,
                       hintText: 'Needs',
@@ -309,6 +312,7 @@ class UpdateTask extends StatelessWidget {
                       hintfontFamily: 'Roboto',
                       borderColor: AppColor.defaultOpacity2Color,
                       onChanged: (value) {},
+                      maxLines: 10,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your email';

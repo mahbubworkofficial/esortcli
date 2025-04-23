@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../routes/app_pages.dart';
-import '../../../widgets/edge_button.dart';
 import '../../../widgets/round_button.dart';
 import '../controllers/sign_up_controller.dart';
 
@@ -272,7 +271,10 @@ class SignUpView extends GetView<SignUpController> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      EdgeButton(
+                      RoundButton(
+                        height: 57,
+                        width: 165,
+                        radius: 10,
                         title: 'GOOGLE',
                         onPress: () {
                           controller.googleLogin();
@@ -281,7 +283,10 @@ class SignUpView extends GetView<SignUpController> {
                         textColor: AppColor.googleTextColor,
                       ),
                       const SizedBox(width: 10),
-                      EdgeButton(
+                      RoundButton(
+                        height: 57,
+                        width: 165,
+                        radius: 10,
                         title: 'FACEBOOK',
                         onPress: () {
                           controller.facebookLogin();
