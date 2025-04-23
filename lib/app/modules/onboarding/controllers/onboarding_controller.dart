@@ -1,4 +1,5 @@
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:esortcli/app/res/colors/app_color.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingController extends StatelessWidget {
@@ -21,10 +22,6 @@ class OnboardingController extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const Color textColor = Color(0xFFFFFFFF);
-    const Color descriptionColor = Color(0xFF6B6B6B);
-    const Color dotColor = Color(0xFF8AB19B);
-    const Color inactiveDotColor = Color(0xFFD3D3D3);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -38,12 +35,12 @@ class OnboardingController extends StatelessWidget {
           dotsCount: totalPages,
           position: currentPage.toDouble(),
           decorator: DotsDecorator(
-            color: inactiveDotColor,
-            activeColor: dotColor,
-            size: const Size.square(9.0),
-            activeSize: const Size(18.0, 9.0),
+            color: AppColor.hintTextColor,
+            activeColor: AppColor.whiteColor,
+            size: const Size.square(10.0),
+            activeSize: const Size(15.0, 15.0),
             activeShape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5.0),
+              borderRadius: BorderRadius.circular(20.0),
             ),
           ),
         ),
@@ -60,7 +57,7 @@ class OnboardingController extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.w700,
-                    color: textColor,
+                    color: AppColor.whiteColor,
                     fontFamily: 'Poppins',
                   ),
                 ),
@@ -69,8 +66,8 @@ class OnboardingController extends StatelessWidget {
                   description,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    fontSize: 16,
-                    color: descriptionColor,
+                    fontSize: 18,
+                    color: AppColor.hintTextColor,
                     fontWeight: FontWeight.w300,
                     fontFamily: 'Poppins',
                   ),

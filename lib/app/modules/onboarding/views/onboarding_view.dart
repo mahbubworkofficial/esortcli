@@ -1,3 +1,4 @@
+import 'package:esortcli/app/res/colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
@@ -48,7 +49,7 @@ class _OnboardingViewState extends State<OnboardingView> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColor.blackColor,
       body: SafeArea(
         child:
         Column(
@@ -61,12 +62,10 @@ class _OnboardingViewState extends State<OnboardingView> {
                   Get.offNamed(Routes.WELCOME);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(
-                    0xFF000000,
-                  ),
-                  foregroundColor: Color(0xFFFFFFFF),
+                  backgroundColor: AppColor.blackColor,
+                  foregroundColor:AppColor.whiteColor,
                   textStyle: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 22,
                     fontStyle: FontStyle.normal,
                     fontWeight: FontWeight.w600,
                     fontFamily: 'Poppins',

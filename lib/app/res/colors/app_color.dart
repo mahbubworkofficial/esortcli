@@ -6,6 +6,7 @@ class AppColor {
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color hintTextColor = Color(0x80FFFFFF);
   static const Color whiteButtonColor = Color(0xFFF5F5DC);
+  static const Color dotColor = Color(0xFF8AB19B);
   static const Color whiteTextColor = Color(0xCCFFFFFF);
   static const Color transparentColor = Color(0x80000000);
   static const Color dividerColor = Color(0x1AFFFFFF);
