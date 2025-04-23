@@ -105,162 +105,167 @@ class _SonicAiViewState extends State<SonicAiView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset(ImageAssets.background, fit: BoxFit.fill),
-          ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20.0,
-                vertical: 10.0,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: SvgPicture.asset(
-                          ImageAssets.back_button,
-                          height: 24,
-                          width: 12,
-                          color: AppColor.whiteColor,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            'SonicAI',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Inter',
-                            ),
-                          ),
-                          const SizedBox(width: 5),
-                          SvgPicture.asset(
-                            ImageAssets.pro,
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Positioned.fill(
+              child: Image.asset(ImageAssets.background, fit: BoxFit.fill),
+            ),
+            SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20.0,
+                  vertical: 10.0,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: SvgPicture.asset(
+                            ImageAssets.back_button,
                             height: 24,
                             width: 12,
+                            color: AppColor.whiteColor,
                           ),
-                        ],
-                      ),
-                      const SizedBox(width: 5),
-                    ],
-                  ),
-                  const SizedBox(height: 30),
-                  const Text(
-                    'Try Sonic AI Premium Features',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Inter',
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Container(
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: AppColor.transparentColor,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Column(
-                      children: [
-                        _buildPlanOption(
-                          'Monthly',
-                          '\$7.99 /month',
-                          _selectedPlan == 'Monthly',
-                          () {
-                            setState(() {
-                              _selectedPlan = 'Monthly';
-                            });
-                          },
                         ),
-                        const Divider(color: AppColor.dividerColor),
-                        _buildPlanOption(
-                          'Lifetime',
-                          '\$250',
-                          _selectedPlan == 'Lifetime',
-                          () {
-                            setState(() {
-                              _selectedPlan = 'Lifetime';
-                            });
-                          },
-                          isBestValue: true,
+                        Row(
+                          children: [
+                            Text(
+                              'SonicAI',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Inter',
+                              ),
+                            ),
+                            const SizedBox(width: 5),
+                            SvgPicture.asset(
+                              ImageAssets.pro,
+                              height: 24,
+                              width: 12,
+                            ),
+                          ],
                         ),
-                        const Divider(color: AppColor.dividerColor),
-                        _buildPlanOption(
-                          'Yearly',
-                          '\$69.99 /year',
-                          _selectedPlan == 'Yearly',
-                          () {
-                            setState(() {
-                              _selectedPlan = 'Yearly';
-                            });
-                          },
-                        ),
+                        const SizedBox(width: 5),
                       ],
                     ),
-                  ),
-                  const SizedBox(height: 30),
-                  const Text(
-                    'WHAT\'S INCLUDED',
-                    style: TextStyle(
-                      color: Color(0xFFB0B0B0),
-                      fontSize: 13,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  _buildFeatureItem('Some features goes here'),
-                  const SizedBox(height: 15),
-                  _buildFeatureItem('Some features goes here'),
-                  const SizedBox(height: 15),
-                  _buildFeatureItem('Some features goes here'),
-                  const SizedBox(height: 15),
-                  _buildFeatureItem('Some features goes here'),
-                  const SizedBox(height: 15),
-                  _buildFeatureItem('Some features goes here'),
-                  const SizedBox(height: 15),
-                  _buildFeatureItem('Some features goes here'),
-                  const Spacer(),
-                  RoundButton(
-                    title: 'Free Trial',
-                    buttonColor: AppColor.defaultColor,
-                    textColor: AppColor.whiteColor,
-                    radius: 10,
-                    height: 50,
-                    onPress: () {
-                      Get.dialog(UpgradeDialog(onConfirm: () {}));
-                    },
-                  ),
-                  const SizedBox(height: 10),
-                  const Center(
-                    child: Text(
-                      '3 DAY FREE TRIAL, THEN \$19.99/YEAR. CANCEL ANYTIME.',
+                    const SizedBox(height: 30),
+                    const Text(
+                      'Try Sonic AI Premium Features',
                       style: TextStyle(
-                        color: Color(0xFFB0B0B0),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
                         fontFamily: 'Inter',
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                ],
+                    const SizedBox(height: 20),
+                    Container(
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: AppColor.transparentColor,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Column(
+                        children: [
+                          _buildPlanOption(
+                            'Monthly',
+                            '\$7.99 /month',
+                            _selectedPlan == 'Monthly',
+                            () {
+                              setState(() {
+                                _selectedPlan = 'Monthly';
+                              });
+                            },
+                          ),
+                          const Divider(color: AppColor.dividerColor),
+                          _buildPlanOption(
+                            'Lifetime',
+                            '\$250',
+                            _selectedPlan == 'Lifetime',
+                            () {
+                              setState(() {
+                                _selectedPlan = 'Lifetime';
+                              });
+                            },
+                            isBestValue: true,
+                          ),
+                          const Divider(color: AppColor.dividerColor),
+                          _buildPlanOption(
+                            'Yearly',
+                            '\$69.99 /year',
+                            _selectedPlan == 'Yearly',
+                            () {
+                              setState(() {
+                                _selectedPlan = 'Yearly';
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    const Text(
+                      'WHAT\'S INCLUDED',
+                      style: TextStyle(
+                        color: Color(0xFFB0B0B0),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    _buildFeatureItem('Some features goes here'),
+                    const SizedBox(height: 15),
+                    _buildFeatureItem('Some features goes here'),
+                    const SizedBox(height: 15),
+                    _buildFeatureItem('Some features goes here'),
+                    const SizedBox(height: 15),
+                    _buildFeatureItem('Some features goes here'),
+                    const SizedBox(height: 15),
+                    _buildFeatureItem('Some features goes here'),
+                    const SizedBox(height: 15),
+                    _buildFeatureItem('Some features goes here'),
+                    const Spacer(),
+                    RoundButton(
+                      title: 'Free Trial',
+                      buttonColor: AppColor.defaultColor,
+                      textColor: AppColor.whiteColor,
+                      radius: 10,
+                      height: 50,
+                      onPress: () {
+                        Get.dialog(UpgradeDialog(onConfirm: () {}));
+                      },
+                    ),
+                    const SizedBox(height: 10),
+                    const Center(
+                      child: Text(
+                        '3 DAY FREE TRIAL, THEN \$19.99/YEAR. CANCEL ANYTIME.',
+                        style: TextStyle(
+                          color: Color(0xFFB0B0B0),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'Inter',
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

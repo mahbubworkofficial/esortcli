@@ -114,7 +114,7 @@ class _FoodItemListState extends State<FoodItemList> {
       context: context,
       position: RelativeRect.fromLTRB(
         position.dx,
-        position.dy,
+        position.dy+20,
         overlay.size.width - position.dx,
         overlay.size.height - position.dy,
       ),

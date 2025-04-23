@@ -12,12 +12,12 @@ class Untitled extends GetView<CatagoryListController> {
 
   void _showPopupMenu(BuildContext context, Offset position) {
     final RenderBox overlay =
-    Overlay.of(context).context.findRenderObject()! as RenderBox;
+        Overlay.of(context).context.findRenderObject()! as RenderBox;
     showMenu(
       context: context,
       position: RelativeRect.fromLTRB(
         position.dx,
-        position.dy,
+        position.dy + 20,
         overlay.size.width - position.dx,
         overlay.size.height - position.dy,
       ),
@@ -87,85 +87,97 @@ class Untitled extends GetView<CatagoryListController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColor.blackColor,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 20.0, right: 20),
-            child: Column(
-              children: [ InkWell(
-                onTap: () {
-                  Get.back();
-                },
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      ImageAssets.back_button,
-                      height: 24,
-                      width: 12,
-                    ),
-                    const SizedBox(width: 10,),
-                    Text(
-                      'Back',
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: AppColor.blackColor,
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20.0, right: 20),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              ImageAssets.back_button,
+                              height: 24,
+                              width: 12,
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              'Back',
+                              style: TextStyle(
+                                color: AppColor.defaultColor,
+                                fontSize: 22,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Roboto',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Untitled',
                       style: TextStyle(
-                        color: AppColor.defaultColor,
-                        fontSize: 22,
+                        fontFamily: 'Poppins',
                         fontWeight: FontWeight.w500,
-                        fontFamily: 'Roboto',
+                        fontSize: 24,
+                        color: AppColor.whiteColor,
                       ),
                     ),
-                  ],
-                ),
-              ),
-                const SizedBox(height: 20,),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Untitled',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 24,
-                      color: AppColor.whiteColor,
+                  ),
+                  const SizedBox(height: 20),
+                  Container(
+                    height: 600,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AppColor.backgroundColor,
                     ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  height: 600,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: AppColor.backgroundColor,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'i have a meeting At 9 Pm . with pial',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18,
-                            color: AppColor.whiteColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'I have a meeting At 9 Pm .\nwith pial',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18,
+                              color: AppColor.whiteColor,
+                            ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTapDown: (details) {
-                            _showPopupMenu(context, details.globalPosition);
-                          },
-                          child: Align(
+                          GestureDetector(
+                            onTapDown: (details) {
+                              _showPopupMenu(context, details.globalPosition);
+                            },
+                            child: Align(
                               alignment: Alignment.topRight,
-                              child: SvgPicture.asset(ImageAssets.popup_menu)),
-                        ),
-                      ],
+                              child: SvgPicture.asset(ImageAssets.popup_menu),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

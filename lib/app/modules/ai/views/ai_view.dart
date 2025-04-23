@@ -103,224 +103,228 @@ class _AiViewState extends State<AiView> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColor.blackColor,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Get.toNamed(Routes.HOME);
-                    },
-                    child: Row(
-                      children: [
-                        SvgPicture.asset(
-                          ImageAssets.back_button,
-                          height: 24,
-                          width: 12,
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          'Back',
-                          style: TextStyle(
-                            color: AppColor.defaultColor,
-                            fontSize: 22,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'Roboto',
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: AppColor.blackColor,
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.HOME);
+                      },
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            ImageAssets.back_button,
+                            height: 24,
+                            width: 12,
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SvgPicture.asset(
-                    ImageAssets.delete,
-                    height: 20,
-                    width: 20,
-                    color: AppColor.redColor,
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 20,
-              ),
-              child: Row(
-                children: [
-                  SvgPicture.asset(
-                    ImageAssets.double_star,
-                    height: 20,
-                    width: 20,
-                  ),
-                  const SizedBox(width: 20),
-                  Text(
-                    'I am here to make your work easier.',
-                    style: TextStyle(
-                      color: AppColor.whiteColor,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: 'Roboto',
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 40.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            if (_text.isNotEmpty)
-                              Container(
-                                padding: EdgeInsets.all(16),
-                                margin: EdgeInsets.symmetric(horizontal: 24),
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[200],
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Text(
-                                  _text,
-                                  style: TextStyle(fontSize: 18),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            SizedBox(height: 30),
-                            GestureDetector(
-                              onTap: _listen,
-                              child: AnimatedBuilder(
-                                animation: _animation,
-                                builder: (context, child) {
-                                  return Stack(
-                                    alignment: Alignment.center,
-                                    children: [
-                                      if (_animationController.isAnimating)
-                                        ...List.generate(5, (index) {
-                                          final opacity =
-                                              1.0 -
-                                              (_animation.value *
-                                                  (index + 1) /
-                                                  5);
-                                          final scale =
-                                              1.0 +
-                                              (_animation.value *
-                                                  (index + 1) *
-                                                  0.5);
-                                          return Opacity(
-                                            opacity: opacity.clamp(0.0, 0.7),
-                                            child: Container(
-                                              width: 120 * scale,
-                                              height: 120 * scale,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                border: Border.all(
-                                                  color: Color.fromRGBO(
-                                                    121,
-                                                    167,
-                                                    141,
-                                                    1,
-                                                  ).withOpacity(0.5),
-                                                  width: 1.5,
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        }),
-                                      Container(
-                                        width: 120,
-                                        height: 120,
-                                        decoration: BoxDecoration(
-                                          color:
-                                              _isListening
-                                                  ? Color.fromRGBO(
-                                                    121,
-                                                    167,
-                                                    141,
-                                                    1,
-                                                  ).withOpacity(0.9)
-                                                  : Color.fromRGBO(
-                                                    121,
-                                                    167,
-                                                    141,
-                                                    1,
-                                                  ),
-                                          shape: BoxShape.circle,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.black.withOpacity(
-                                                0.1,
-                                              ),
-                                              blurRadius: 8,
-                                              offset: Offset(0, 3),
-                                            ),
-                                          ],
-                                        ),
-                                        child: Icon(
-                                          Icons.mic,
-                                          size: 40,
-                                          color: Colors.black87,
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              ),
+                          const SizedBox(width: 10),
+                          Text(
+                            'Back',
+                            style: TextStyle(
+                              color: AppColor.defaultColor,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Roboto',
                             ),
-                          ],
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                    SvgPicture.asset(
+                      ImageAssets.delete,
+                      height: 20,
+                      width: 20,
+                      color: AppColor.redColor,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Get.dialog(AiDialog(onConfirm: () {}));
-                    },
-                    child: SvgPicture.asset(
-                      ImageAssets.ai_note,
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 20,
+                ),
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      ImageAssets.double_star,
                       height: 20,
                       width: 20,
                     ),
-                  ),
-                  const SizedBox(height: 30),
-                  RoundButton(
-                    title: 'Confirm',
-                    onPress: () {
-                      Get.toNamed(Routes.TASK);
-                    },
-                    fontWeight: FontWeight.w500,
-                    fontSize: 18,
-                    fontFamily: 'Roboto',
-                    radius: 10,
-                    height: 50,
-                    buttonColor: AppColor.defaultColor,
-                    textColor: AppColor.whiteColor,
-                  ),
-                  const SizedBox(height: 30),
-                ],
+                    const SizedBox(width: 20),
+                    Text(
+                      'I am here to make your work easier.',
+                      style: TextStyle(
+                        color: AppColor.whiteColor,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            CustomBottomNavigationBar(),
-          ],
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              if (_text.isNotEmpty)
+                                Container(
+                                  padding: EdgeInsets.all(16),
+                                  margin: EdgeInsets.symmetric(horizontal: 24),
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey[200],
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: Text(
+                                    _text,
+                                    style: TextStyle(fontSize: 18),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              GestureDetector(
+                                onTap: _listen,
+                                child: AnimatedBuilder(
+                                  animation: _animation,
+                                  builder: (context, child) {
+                                    return Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        if (_animationController.isAnimating)
+                                          ...List.generate(5, (index) {
+                                            final opacity =
+                                                1.0 -
+                                                (_animation.value *
+                                                    (index + 1) /
+                                                    5);
+                                            final scale =
+                                                1.0 +
+                                                (_animation.value *
+                                                    (index + 1) *
+                                                    0.5);
+                                            return Opacity(
+                                              opacity: opacity.clamp(0.0, 0.7),
+                                              child: Container(
+                                                width: 120 * scale,
+                                                height: 120 * scale,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                    color: Color.fromRGBO(
+                                                      121,
+                                                      167,
+                                                      141,
+                                                      1,
+                                                    ).withOpacity(0.5),
+                                                    width: 1.5,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }),
+                                        Container(
+                                          width: 120,
+                                          height: 120,
+                                          decoration: BoxDecoration(
+                                            color:
+                                                _isListening
+                                                    ? Color.fromRGBO(
+                                                      121,
+                                                      167,
+                                                      141,
+                                                      1,
+                                                    ).withOpacity(0.9)
+                                                    : Color.fromRGBO(
+                                                      121,
+                                                      167,
+                                                      141,
+                                                      1,
+                                                    ),
+                                            shape: BoxShape.circle,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black.withOpacity(
+                                                  0.1,
+                                                ),
+                                                blurRadius: 8,
+                                                offset: Offset(0, 3),
+                                              ),
+                                            ],
+                                          ),
+                                          child: Icon(
+                                            Icons.mic,
+                                            size: 40,
+                                            color: Colors.black87,
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Get.dialog(AiDialog(onConfirm: () {}));
+                      },
+                      child: SvgPicture.asset(
+                        ImageAssets.ai_note,
+                        height: 20,
+                        width: 20,
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    RoundButton(
+                      title: 'Confirm',
+                      onPress: () {
+                        Get.toNamed(Routes.TASK);
+                      },
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                      fontFamily: 'Roboto',
+                      radius: 10,
+                      height: 50,
+                      buttonColor: AppColor.defaultColor,
+                      textColor: AppColor.whiteColor,
+                    ),
+                    const SizedBox(height: 30),
+                  ],
+                ),
+              ),
+              CustomBottomNavigationBar(),
+            ],
+          ),
         ),
       ),
     );

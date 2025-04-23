@@ -18,7 +18,7 @@ class CatagoryListView extends GetView<CatagoryListController> {
       context: context,
       position: RelativeRect.fromLTRB(
         position.dx,
-        position.dy,
+        position.dy+20,
         overlay.size.width - position.dx,
         overlay.size.height - position.dy,
       ),
@@ -88,56 +88,99 @@ class CatagoryListView extends GetView<CatagoryListController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColor.blackColor,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 20.0, right: 20),
-            child: Column(
-              children: [ InkWell(
-                onTap: () {
-                  Get.back();
-                },
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      ImageAssets.back_button,
-                      height: 24,
-                      width: 12,
-                    ),
-                    const SizedBox(width: 10,),
-                    Text(
-                      'Back',
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: AppColor.blackColor,
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20.0, right: 20),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              ImageAssets.back_button,
+                              height: 24,
+                              width: 12,
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              'Back',
+                              style: TextStyle(
+                                color: AppColor.defaultColor,
+                                fontSize: 22,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Roboto',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Agenda',
                       style: TextStyle(
-                        color: AppColor.defaultColor,
-                        fontSize: 22,
+                        fontFamily: 'Poppins',
                         fontWeight: FontWeight.w500,
-                        fontFamily: 'Roboto',
+                        fontSize: 24,
+                        color: AppColor.whiteColor,
                       ),
                     ),
-                  ],
-                ),
-              ),
-                const SizedBox(height: 20,),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Agenda',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 24,
-                      color: AppColor.whiteColor,
+                  ),
+                  const SizedBox(height: 20),
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => Untitled());
+                    },
+                    child: Container(
+                      height: 60,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColor.backgroundColor,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'I have a meeting .........',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18,
+                                color: AppColor.whiteColor,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTapDown: (details) {
+                                _showPopupMenu(context, details.globalPosition);
+                              },
+                              child: SvgPicture.asset(ImageAssets.popup_menu),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                InkWell(
-                  onTap: () {
-                    Get.to(() => Untitled());
-                  },
-                  child: Container(
+                  const SizedBox(height: 15),
+                  Container(
                     height: 60,
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -150,7 +193,7 @@ class CatagoryListView extends GetView<CatagoryListController> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'I have a meeting .........',
+                            'I want read book......',
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
@@ -168,104 +211,72 @@ class CatagoryListView extends GetView<CatagoryListController> {
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 15),
-                Container(
-                  height: 60,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: AppColor.backgroundColor,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'I want read book......',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18,
-                            color: AppColor.whiteColor,
+                  const SizedBox(height: 15),
+                  Container(
+                    height: 60,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AppColor.backgroundColor,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'I want to go to the park .........',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18,
+                              color: AppColor.whiteColor,
+                            ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTapDown: (details) {
-                            _showPopupMenu(context, details.globalPosition);
-                          },
-                          child: SvgPicture.asset(ImageAssets.popup_menu),
-                        ),
-                      ],
+                          GestureDetector(
+                            onTapDown: (details) {
+                              _showPopupMenu(context, details.globalPosition);
+                            },
+                            child: SvgPicture.asset(ImageAssets.popup_menu),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 15),
-                Container(
-                  height: 60,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: AppColor.backgroundColor,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'I want to go to the park .........',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18,
-                            color: AppColor.whiteColor,
+                  const SizedBox(height: 15),
+                  Container(
+                    height: 60,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AppColor.backgroundColor,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Follow up with Bob .........',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18,
+                              color: AppColor.whiteColor,
+                            ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTapDown: (details) {
-                            _showPopupMenu(context, details.globalPosition);
-                          },
-                          child: SvgPicture.asset(ImageAssets.popup_menu),
-                        ),
-                      ],
+                          GestureDetector(
+                            onTapDown: (details) {
+                              _showPopupMenu(context, details.globalPosition);
+                            },
+                            child: SvgPicture.asset(ImageAssets.popup_menu),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 15),
-                Container(
-                  height: 60,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: AppColor.backgroundColor,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Follow up with Bob .........',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18,
-                            color: AppColor.whiteColor,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTapDown: (details) {
-                            _showPopupMenu(context, details.globalPosition);
-                          },
-                          child: SvgPicture.asset(ImageAssets.popup_menu),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

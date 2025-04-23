@@ -13,66 +13,71 @@ class BudgetDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      backgroundColor: AppColor.backgroundColor,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: IconButton(
-              icon: SvgPicture.asset(
-                ImageAssets.cross,
-                height: 24,
-                width: 24,
-                color: AppColor.defaultColor,
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: AppColor.backgroundColor,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                icon: SvgPicture.asset(
+                  ImageAssets.cross,
+                  height: 24,
+                  width: 24,
+                  color: AppColor.defaultColor,
+                ),
+                onPressed: () => Get.back(),
               ),
-              onPressed: () => Get.back(),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 10),
-                Text(
-                  'Budget',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w500,
-                    fontSize: 18,
-                    color: Colors.white,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 10),
+                  Text(
+                    'Budget',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 30),
-                InputTextWidget(
-                  hintText: 'Type Your Budget',
-                  onChanged: (value) {},
-                  height: 45,
-                  hintfontWeight: FontWeight.w400,
-                  hintfontSize: 16,
-                  vertical: 12,
-                  borderColor: AppColor.defaultOpacity2Color,
-                ),
-                const SizedBox(height: 35),
-                RoundButton(
-                  title: 'Set',
-                  onPress: () => Get.back(),
-                  height: 45,
-                  radius: 10,
-                  buttonColor: AppColor.defaultColor,
-                  textColor: AppColor.whiteColor,
-                  fontFamily: "Roboto",
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                ),
-              ],
+                  const SizedBox(height: 30),
+                  InputTextWidget(
+                    hintText: 'Type Your Budget',
+                    onChanged: (value) {},
+                    height: 45,
+                    hintfontWeight: FontWeight.w400,
+                    hintfontSize: 16,
+                    vertical: 12,
+                    borderColor: AppColor.defaultOpacity2Color,
+                  ),
+                  const SizedBox(height: 35),
+                  RoundButton(
+                    title: 'Set',
+                    onPress: () => Get.back(),
+                    height: 45,
+                    radius: 10,
+                    buttonColor: AppColor.defaultColor,
+                    textColor: AppColor.whiteColor,
+                    fontFamily: "Roboto",
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-        ],
+            const SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }

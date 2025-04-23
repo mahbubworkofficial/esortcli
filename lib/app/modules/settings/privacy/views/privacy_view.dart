@@ -46,29 +46,34 @@ class PrivacyView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              InkWell(
-                onTap: () {
-                  Get.back();
-                },
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      ImageAssets.back_button,
-                      height: 24,
-                      width: 12,
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          ImageAssets.back_button,
+                          height: 24,
+                          width: 12,
+                        ),
+                        const SizedBox(width: 10),
+                        Text(
+                          'Back',
+                          style: TextStyle(
+                            color: AppColor.defaultColor,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Roboto',
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 10),
-                    Text(
-                      'Back',
-                      style: TextStyle(
-                        color: AppColor.defaultColor,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 10),
+                ],
               ),
               const SizedBox(height: 30),
               Align(
